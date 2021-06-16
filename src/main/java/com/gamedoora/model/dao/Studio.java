@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "studios")
-public class Studios implements Serializable {
+public class Studio implements Serializable {
 
     @Id
     @GeneratedValue
@@ -51,9 +51,9 @@ public class Studios implements Serializable {
     @Column(name = "description", table = "studios", length = 65535)
     private String description;
     @OneToMany
-    private List<StudioAssets> studioAssetses;
+    private List<StudioAsset> studioAssets;
     @OneToMany
-    private List<StudioUserRequests> studioUserRequestses;
+    private List<StudioUserRequest> studioUserRequests;
 
     public Integer getId() {
         return id;
@@ -127,42 +127,42 @@ public class Studios implements Serializable {
         this.description = description;
     }
 
-    public List<StudioAssets> getStudioAssetses() {
-        if (studioAssetses == null) {
-            studioAssetses = new ArrayList<>();
+    public List<StudioAsset> getStudioAssets() {
+        if (studioAssets == null) {
+            studioAssets = new ArrayList<>();
         }
-        return studioAssetses;
+        return studioAssets;
     }
 
-    public void setStudioAssetses(List<StudioAssets> studioAssetses) {
-        this.studioAssetses = studioAssetses;
+    public void setStudioAssets(List<StudioAsset> studioAssets) {
+        this.studioAssets = studioAssets;
     }
 
-    public void addStudioAssetse(StudioAssets studioAssetse) {
-        getStudioAssetses().add(studioAssetse);
+    public void addStudioAsset(StudioAsset studioAsset) {
+        getStudioAssets().add(studioAsset);
     }
 
-    public void removeStudioAssetse(StudioAssets studioAssetse) {
-        getStudioAssetses().remove(studioAssetse);
+    public void removeStudioAsset(StudioAsset studioAsset) {
+        getStudioAssets().remove(studioAsset);
     }
 
-    public List<StudioUserRequests> getStudioUserRequestses() {
-        if (studioUserRequestses == null) {
-            studioUserRequestses = new ArrayList<>();
+    public List<StudioUserRequest> getStudioUserRequests() {
+        if (studioUserRequests == null) {
+            studioUserRequests = new ArrayList<>();
         }
-        return studioUserRequestses;
+        return studioUserRequests;
     }
 
-    public void setStudioUserRequestses(List<StudioUserRequests> studioUserRequestses) {
-        this.studioUserRequestses = studioUserRequestses;
+    public void setStudioUserRequests(List<StudioUserRequest> studioUserRequests) {
+        this.studioUserRequests = studioUserRequests;
     }
 
-    public void addStudioUserRequestse(StudioUserRequests studioUserRequestse) {
-        getStudioUserRequestses().add(studioUserRequestse);
+    public void addStudioUserRequest(StudioUserRequest studioUserRequest) {
+        getStudioUserRequests().add(studioUserRequest);
     }
 
-    public void removeStudioUserRequestse(StudioUserRequests studioUserRequestse) {
-        getStudioUserRequestses().remove(studioUserRequestse);
+    public void removeStudioUserRequest(StudioUserRequest studioUserRequest) {
+        getStudioUserRequests().remove(studioUserRequest);
     }
 
 }

@@ -18,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "stories", uniqueConstraints = @UniqueConstraint(columnNames = {"state_id", "created_at"}))
-public class Stories implements Serializable {
+public class Story implements Serializable {
 
     @Id
     @GeneratedValue
@@ -55,9 +55,9 @@ public class Stories implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
     @OneToMany
-    private List<StoryUsers> storyUserses;
+    private List<StoryUser> storyUsers;
     @OneToMany
-    private List<StudioStoryAssets> studioStoryAssetses;
+    private List<StudioStoryAsset> studioStoryAssets;
 
     public Integer getId() {
         return id;
@@ -139,42 +139,42 @@ public class Stories implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public List<StoryUsers> getStoryUserses() {
-        if (storyUserses == null) {
-            storyUserses = new ArrayList<>();
+    public List<StoryUser> getStoryUsers() {
+        if (storyUsers == null) {
+            storyUsers = new ArrayList<>();
         }
-        return storyUserses;
+        return storyUsers;
     }
 
-    public void setStoryUserses(List<StoryUsers> storyUserses) {
-        this.storyUserses = storyUserses;
+    public void setStoryUsers(List<StoryUser> storyUsers) {
+        this.storyUsers = storyUsers;
     }
 
-    public void addStoryUserse(StoryUsers storyUserse) {
-        getStoryUserses().add(storyUserse);
+    public void addStoryUser(StoryUser storyUser) {
+        getStoryUsers().add(storyUser);
     }
 
-    public void removeStoryUserse(StoryUsers storyUserse) {
-        getStoryUserses().remove(storyUserse);
+    public void removeStoryUser(StoryUser storyUser) {
+        getStoryUsers().remove(storyUser);
     }
 
-    public List<StudioStoryAssets> getStudioStoryAssetses() {
-        if (studioStoryAssetses == null) {
-            studioStoryAssetses = new ArrayList<>();
+    public List<StudioStoryAsset> getStudioStoryAssets() {
+        if (studioStoryAssets == null) {
+            studioStoryAssets = new ArrayList<>();
         }
-        return studioStoryAssetses;
+        return studioStoryAssets;
     }
 
-    public void setStudioStoryAssetses(List<StudioStoryAssets> studioStoryAssetses) {
-        this.studioStoryAssetses = studioStoryAssetses;
+    public void setStudioStoryAssets(List<StudioStoryAsset> studioStoryAssets) {
+        this.studioStoryAssets = studioStoryAssets;
     }
 
-    public void addStudioStoryAssetse(StudioStoryAssets studioStoryAssetse) {
-        getStudioStoryAssetses().add(studioStoryAssetse);
+    public void addStudioStoryAsset(StudioStoryAsset studioStoryAsset) {
+        getStudioStoryAssets().add(studioStoryAsset);
     }
 
-    public void removeStudioStoryAssetse(StudioStoryAssets studioStoryAssetse) {
-        getStudioStoryAssetses().remove(studioStoryAssetse);
+    public void removeStudioStoryAsset(StudioStoryAsset studioStoryAsset) {
+        getStudioStoryAssets().remove(studioStoryAsset);
     }
 
 }

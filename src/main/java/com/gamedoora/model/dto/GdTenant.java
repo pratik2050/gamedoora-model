@@ -3,10 +3,12 @@ package com.gamedoora.model.dto;
 
 import java.util.Date;
 
-public class Tags {
+public class GdTenant {
 
   private long id;
-  private String name;
+  private String subdomain;
+  private long entityId;
+  private String entityType;
   private Date createdAt;
   private Date updatedAt;
 
@@ -20,12 +22,30 @@ public class Tags {
   }
 
 
-  public String getName() {
-    return name;
+  public String getSubdomain() {
+    return subdomain;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setSubdomain(String subdomain) {
+    this.subdomain = subdomain;
+  }
+
+
+  public long getEntityId() {
+    return entityId;
+  }
+
+  public void setEntityId(long entityId) {
+    this.entityId = entityId;
+  }
+
+
+  public String getEntityType() {
+    return entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
   }
 
 

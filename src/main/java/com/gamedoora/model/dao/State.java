@@ -1,6 +1,5 @@
 package com.gamedoora.model.dao;
 
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -14,7 +13,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "states", uniqueConstraints = @UniqueConstraint(columnNames = {"studio_id", "created_at", "name"}))
-public class States implements Serializable {
+public class State {
 
     @Id
     @GeneratedValue

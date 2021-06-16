@@ -7,35 +7,33 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "tasks")
-public class Tasks implements Serializable {
+@Table(name = "tenants")
+public class Tenant implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "tasks", nullable = false)
+    @Column(name = "id", table = "tenants", nullable = false)
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "story_id", table = "tasks", nullable = false)
-    private int storyId;
-    @Lob
     @Basic
-    @Column(name = "description", table = "tasks", length = 65535)
-    private String description;
+    @Column(name = "subdomain", table = "tenants")
+    private String subdomain;
+    @Basic
+    @Column(name = "entity_id", table = "tenants")
+    private Integer entityId;
+    @Basic
+    @Column(name = "entity_type", table = "tenants")
+    private String entityType;
     @Basic(optional = false)
-    @Column(name = "is_done", table = "tasks", nullable = false)
-    private short isDone;
-    @Basic(optional = false)
-    @Column(name = "created_at", table = "tasks", nullable = false)
+    @Column(name = "created_at", table = "tenants", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "tasks", nullable = false)
+    @Column(name = "updated_at", table = "tenants", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -47,28 +45,28 @@ public class Tasks implements Serializable {
         this.id = id;
     }
 
-    public int getStoryId() {
-        return storyId;
+    public String getSubdomain() {
+        return subdomain;
     }
 
-    public void setStoryId(int storyId) {
-        this.storyId = storyId;
+    public void setSubdomain(String subdomain) {
+        this.subdomain = subdomain;
     }
 
-    public String getDescription() {
-        return description;
+    public Integer getEntityId() {
+        return entityId;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEntityId(Integer entityId) {
+        this.entityId = entityId;
     }
 
-    public short getIsDone() {
-        return isDone;
+    public String getEntityType() {
+        return entityType;
     }
 
-    public void setIsDone(short isDone) {
-        this.isDone = isDone;
+    public void setEntityType(String entityType) {
+        this.entityType = entityType;
     }
 
     public Date getCreatedAt() {
