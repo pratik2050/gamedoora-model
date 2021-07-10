@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <entity-mappings ptype="MONOLITH" ppkg="com.gamedoora.model" epkg="dao" v="5.4.3" rws="_1618758021350403" Pws="_1618758021350403" cws="_1618758021350403" persistenceUnitName="DEFAULT_PU" sm="false" xs="false" id="_1618758021277240" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <entity compositePrimaryKeyClass="TenantsPK" abs="false" class="Tenants" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277241">
+    <entity compositePrimaryKeyClass="TenantPK" abs="false" class="Tenant" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277241">
         <attributes>
             <basic optional="true" attribute-type="String" v="true" xvt="" name="subdomain" id="_1618758021278259">
                 <xwm/>
@@ -38,7 +38,7 @@
         </attributes>
         <table name="tenants"/>
     </entity>
-    <entity compositePrimaryKeyClass="CommentsPK" abs="false" class="Comments" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277242">
+    <entity compositePrimaryKeyClass="CommentPK" abs="false" class="Comment" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277242">
         <attributes>
             <basic optional="false" attribute-type="String" v="true" xvt="" name="context" id="_1618758021278265">
                 <xwm/>
@@ -87,7 +87,7 @@
         </attributes>
         <table name="comments"/>
     </entity>
-    <entity compositePrimaryKeyClass="StoriesPK" abs="false" class="Stories" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277243">
+    <entity compositePrimaryKeyClass="StoryPK" abs="false" class="Story" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277243">
         <attributes>
             <basic optional="true" attribute-type="String" v="true" xvt="" name="name" id="_1618758021278273">
                 <xwm/>
@@ -137,11 +137,11 @@
                 <temporal>TIMESTAMP</temporal>
                 <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="stories"/>
             </basic>
-            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277253" v="true" xvt="" name="storyUserses" id="_1618758886586441">
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277253" v="true" xvt="" name="storyUsers" id="_1618758886586441">
                 <xwm/>
                 <xm/>
             </one-to-many>
-            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277248" v="true" xvt="" name="studioStoryAssetses" id="_1618760231262445">
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277248" v="true" xvt="" name="studioStoryAssets" id="_1618760231262445">
                 <xwm/>
                 <xm/>
             </one-to-many>
@@ -159,7 +159,7 @@
             </unique-constraint>
         </table>
     </entity>
-    <entity compositePrimaryKeyClass="StudiosPK" abs="false" class="Studios" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277244">
+    <entity compositePrimaryKeyClass="StudioPK" abs="false" class="Studio" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277244">
         <attributes>
             <basic optional="true" attribute-type="String" v="true" xvt="" name="name" id="_1618758021278283">
                 <xwm/>
@@ -204,11 +204,11 @@
                 <column name="description" unique="false" nullable="true" insertable="true" updatable="true" table="studios" length="65535"/>
                 <lob/>
             </basic>
-            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277245" v="true" xvt="" name="studioAssetses" id="_1618759043025443">
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277245" v="true" xvt="" name="studioAssets" id="_1618759043025443">
                 <xwm/>
                 <xm/>
             </one-to-many>
-            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277246" v="true" xvt="" name="studioUserRequestses" id="_1618760317839449">
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277246" v="true" xvt="" name="studioUserRequests" id="_1618760317839449">
                 <xwm/>
                 <xm/>
             </one-to-many>
@@ -221,7 +221,7 @@
         </attributes>
         <table name="studios"/>
     </entity>
-    <entity compositePrimaryKeyClass="StudioAssetsPK" abs="false" class="StudioAssets" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277245">
+    <entity compositePrimaryKeyClass="StudioAssetPK" abs="false" class="StudioAsset" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277245">
         <attributes>
             <basic optional="false" attribute-type="int" v="true" xvt="" name="studioId" id="_1618758021278292">
                 <xwm/>
@@ -338,7 +338,7 @@
                 <temporal>TIMESTAMP</temporal>
                 <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="studio_assets"/>
             </basic>
-            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277248" v="true" xvt="" name="studioStoryAssetses" id="_1618760267142447">
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277248" v="true" xvt="" name="studioStoryAssets" id="_1618760267142447">
                 <xwm/>
                 <xm/>
             </one-to-many>
@@ -351,7 +351,7 @@
         </attributes>
         <table name="studio_assets"/>
     </entity>
-    <entity compositePrimaryKeyClass="StudioUserRequestsPK" abs="false" class="StudioUserRequests" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277246">
+    <entity compositePrimaryKeyClass="StudioUserRequestPK" abs="false" class="StudioUserRequest" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277246">
         <attributes>
             <basic optional="true" attribute-type="String" v="true" xvt="" name="uid" id="_1618758021278315">
                 <xwm/>
@@ -399,7 +399,7 @@
         </attributes>
         <table name="studio_user_requests"/>
     </entity>
-    <entity compositePrimaryKeyClass="TagEntitiesPK" abs="false" class="TagEntities" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277247">
+    <entity compositePrimaryKeyClass="TagEntitiyPK" abs="false" class="TagEntitiy" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277247">
         <attributes>
             <basic optional="false" attribute-type="int" v="true" xvt="" name="tagId" id="_1618758021278323">
                 <xwm/>
@@ -437,7 +437,7 @@
         </attributes>
         <table name="tag_entities"/>
     </entity>
-    <entity compositePrimaryKeyClass="StudioStoryAssetsPK" abs="false" class="StudioStoryAssets" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277248">
+    <entity compositePrimaryKeyClass="StudioStoryAssetPK" abs="false" class="StudioStoryAsset" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277248">
         <attributes>
             <basic optional="true" attribute-type="Integer" v="true" xvt="" name="storyId" id="_1618758021278329">
                 <xwm/>
@@ -470,7 +470,7 @@
         </attributes>
         <table name="studio_story_assets"/>
     </entity>
-    <entity compositePrimaryKeyClass="UsersPK" abs="false" class="Users" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277249">
+    <entity compositePrimaryKeyClass="UserPK" abs="false" class="User" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277249">
         <attributes>
             <basic optional="false" attribute-type="String" v="true" xvt="" name="email" id="_1618758021278334">
                 <xwm/>
@@ -575,11 +575,11 @@
                 <xm/>
                 <column name="unconfirmed_email" unique="false" nullable="true" insertable="true" updatable="true" table="users" length="255"/>
             </basic>
-            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277253" v="true" xvt="" name="storyUserses" id="_1618758858490439">
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277253" v="true" xvt="" name="storyUsers" id="_1618758858490439">
                 <xwm/>
                 <xm/>
             </one-to-many>
-            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277246" v="true" xvt="" name="studioUserRequestses" id="_1618760337352451">
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_1618758021277246" v="true" xvt="" name="studioUserRequests" id="_1618760337352451">
                 <xwm/>
                 <xm/>
             </one-to-many>
@@ -596,7 +596,7 @@
             </unique-constraint>
         </table>
     </entity>
-    <entity compositePrimaryKeyClass="StatesPK" abs="false" class="States" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277250">
+    <entity compositePrimaryKeyClass="StatePK" abs="false" class="State" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277250">
         <attributes>
             <basic optional="true" attribute-type="String" v="true" xvt="" name="name" id="_1618758021278354">
                 <xwm/>
@@ -640,7 +640,7 @@
             </unique-constraint>
         </table>
     </entity>
-    <entity compositePrimaryKeyClass="TagsPK" abs="false" class="Tags" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277251">
+    <entity compositePrimaryKeyClass="TagPK" abs="false" class="Tag" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277251">
         <attributes>
             <basic optional="false" attribute-type="String" v="true" xvt="" name="name" id="_1618758021279360">
                 <xwm/>
@@ -668,7 +668,7 @@
         </attributes>
         <table name="tags"/>
     </entity>
-    <entity compositePrimaryKeyClass="IdentitiesPK" abs="false" class="Identities" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277252">
+    <entity compositePrimaryKeyClass="IdentityPK" abs="false" class="Identity" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277252">
         <attributes>
             <basic optional="true" attribute-type="String" v="true" xvt="" name="uid" id="_1618758021279364">
                 <xwm/>
@@ -701,7 +701,7 @@
         </attributes>
         <table name="identities"/>
     </entity>
-    <entity compositePrimaryKeyClass="StoryUsersPK" abs="false" class="StoryUsers" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277253">
+    <entity compositePrimaryKeyClass="StoryUserPK" abs="false" class="StoryUser" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021277253">
         <attributes>
             <basic optional="false" attribute-type="int" v="true" xvt="" name="storyId" id="_1618758021279369">
                 <xwm/>
@@ -739,7 +739,7 @@
         </attributes>
         <table name="story_users"/>
     </entity>
-    <entity compositePrimaryKeyClass="NotificationUsersPK" abs="false" class="NotificationUsers" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021278254">
+    <entity compositePrimaryKeyClass="NotificationUserPK" abs="false" class="NotificationUser" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021278254">
         <attributes>
             <basic optional="false" attribute-type="int" v="true" xvt="" name="notificationId" id="_1618758021279375">
                 <xwm/>
@@ -782,7 +782,7 @@
         </attributes>
         <table name="notification_users"/>
     </entity>
-    <entity compositePrimaryKeyClass="NotificationsPK" abs="false" class="Notifications" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021278255">
+    <entity compositePrimaryKeyClass="NotificationPK" abs="false" class="Notification" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021278255">
         <attributes>
             <basic optional="true" attribute-type="String" v="true" xvt="" name="uid" id="_1618758021279382">
                 <xwm/>
@@ -841,7 +841,7 @@
         </attributes>
         <table name="notifications"/>
     </entity>
-    <entity compositePrimaryKeyClass="TasksPK" abs="false" class="Tasks" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021278256">
+    <entity compositePrimaryKeyClass="TaskPK" abs="false" class="Task" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021278256">
         <attributes>
             <basic optional="false" attribute-type="int" v="true" xvt="" name="storyId" id="_1618758021279392">
                 <xwm/>
@@ -880,7 +880,7 @@
         </attributes>
         <table name="tasks"/>
     </entity>
-    <entity compositePrimaryKeyClass="TenantUsersPK" abs="false" class="TenantUsers" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021278257">
+    <entity compositePrimaryKeyClass="TenantUserPK" abs="false" class="TenantUser" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_1618758021278257">
         <attributes>
             <basic optional="true" attribute-type="Integer" v="true" xvt="" name="tenantId" id="_1618758021279398">
                 <xwm/>
@@ -918,6 +918,33 @@
         </attributes>
         <table name="tenant_users"/>
     </entity>
+    <entity compositePrimaryKeyClass="RolePK" abs="false" class="Role" v="true" jbn="false" xre="false" m="false" rootElement="_1618758021277240" id="_162182646667483">
+        <ath>rajsh</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="name" id="_162182649484886">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="description" id="_162182653605487">
+                <xwm/>
+                <xm/>
+            </basic>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_162182646669284">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Role.findAll">
+            <query>Select e from Role e</query>
+        </nq>
+        <nq e="false" name="Role.findByName">
+            <query>Select e from Role e where e.name=:name</query>
+        </nq>
+        <nq e="false" name="Role.findByDescription">
+            <query>Select r from Role r where r.description=:description</query>
+        </nq>
+    </entity>
     <c/>
     <wsl>
         <ws n="Main" id="_1618758021350403">
@@ -928,15 +955,16 @@
             <i ref="_1618758021277241" x="1585" y="698"/>
             <i ref="_1618758021277252" x="1062" y="422"/>
             <i ref="_1618758021278254" x="792" y="43"/>
-            <i ref="_1618758021277242" x="4531" y="32"/>
+            <i ref="_1618758021277242" x="1713" y="36"/>
             <i ref="_1618758021277253" x="271" y="399"/>
+            <i ref="_162182646667483" x="1267" y="286"/>
             <i ref="_1618758021277247" x="1294" y="441"/>
             <i ref="_1618758021277248" x="291" y="32"/>
             <i ref="_1618758021277245" x="814" y="411"/>
             <i ref="_1618758021277246" x="1062" y="32"/>
             <i ref="_1618758021278257" x="1585" y="422"/>
             <i ref="_1618758021277249" x="564" y="404"/>
-            <i ref="_1618758021277250" x="4275" y="32"/>
+            <i ref="_1618758021277250" x="1544" y="208"/>
             <i ref="_1618758021277251" x="1544" y="32"/>
         </ws>
     </wsl>

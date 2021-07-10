@@ -7,30 +7,35 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "studio_story_assets")
-public class StudioStoryAssets implements Serializable {
+@Table(name = "tasks")
+public class Task implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "studio_story_assets", nullable = false)
+    @Column(name = "id", table = "tasks", nullable = false)
     private Integer id;
-    @Basic
-    @Column(name = "story_id", table = "studio_story_assets")
-    private Integer storyId;
-    @Basic
-    @Column(name = "studio_asset_id", table = "studio_story_assets")
-    private Integer studioAssetId;
     @Basic(optional = false)
-    @Column(name = "created_at", table = "studio_story_assets", nullable = false)
+    @Column(name = "story_id", table = "tasks", nullable = false)
+    private int storyId;
+    @Lob
+    @Basic
+    @Column(name = "description", table = "tasks", length = 65535)
+    private String description;
+    @Basic(optional = false)
+    @Column(name = "is_done", table = "tasks", nullable = false)
+    private short isDone;
+    @Basic(optional = false)
+    @Column(name = "created_at", table = "tasks", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "studio_story_assets", nullable = false)
+    @Column(name = "updated_at", table = "tasks", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -42,20 +47,28 @@ public class StudioStoryAssets implements Serializable {
         this.id = id;
     }
 
-    public Integer getStoryId() {
+    public int getStoryId() {
         return storyId;
     }
 
-    public void setStoryId(Integer storyId) {
+    public void setStoryId(int storyId) {
         this.storyId = storyId;
     }
 
-    public Integer getStudioAssetId() {
-        return studioAssetId;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStudioAssetId(Integer studioAssetId) {
-        this.studioAssetId = studioAssetId;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public short getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(short isDone) {
+        this.isDone = isDone;
     }
 
     public Date getCreatedAt() {

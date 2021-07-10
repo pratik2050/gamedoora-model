@@ -12,28 +12,28 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "tenants")
-public class Tenants implements Serializable {
+@Table(name = "tenant_users")
+public class TenantUser implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "tenants", nullable = false)
+    @Column(name = "id", table = "tenant_users", nullable = false)
     private Integer id;
     @Basic
-    @Column(name = "subdomain", table = "tenants")
-    private String subdomain;
+    @Column(name = "tenant_id", table = "tenant_users")
+    private Integer tenantId;
     @Basic
-    @Column(name = "entity_id", table = "tenants")
-    private Integer entityId;
+    @Column(name = "user_id", table = "tenant_users")
+    private Integer userId;
     @Basic
-    @Column(name = "entity_type", table = "tenants")
-    private String entityType;
+    @Column(name = "role", table = "tenant_users")
+    private String role;
     @Basic(optional = false)
-    @Column(name = "created_at", table = "tenants", nullable = false)
+    @Column(name = "created_at", table = "tenant_users", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "tenants", nullable = false)
+    @Column(name = "updated_at", table = "tenant_users", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -45,28 +45,28 @@ public class Tenants implements Serializable {
         this.id = id;
     }
 
-    public String getSubdomain() {
-        return subdomain;
+    public Integer getTenantId() {
+        return tenantId;
     }
 
-    public void setSubdomain(String subdomain) {
-        this.subdomain = subdomain;
+    public void setTenantId(Integer tenantId) {
+        this.tenantId = tenantId;
     }
 
-    public Integer getEntityId() {
-        return entityId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setEntityId(Integer entityId) {
-        this.entityId = entityId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getEntityType() {
-        return entityType;
+    public String getRole() {
+        return role;
     }
 
-    public void setEntityType(String entityType) {
-        this.entityType = entityType;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Date getCreatedAt() {

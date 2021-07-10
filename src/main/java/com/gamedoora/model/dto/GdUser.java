@@ -2,8 +2,9 @@ package com.gamedoora.model.dto;
 
 
 import java.util.Date;
+import java.util.Map;
 
-public class Users {
+public class GdUser {
 
   private long id;
   private String email;
@@ -25,7 +26,14 @@ public class Users {
   private Date confirmedAt;
   private Date confirmationSentAt;
   private String unconfirmedEmail;
-
+  
+  private  String phoneNumber;
+  private  boolean emailVerified;
+  private  String displayName;
+  private  String photoUrl;
+  private  boolean disabled;
+  private  Map<String, Object> customClaims;
+    
 
   public long getId() {
     return id;
@@ -205,5 +213,89 @@ public class Users {
   public void setUnconfirmedEmail(String unconfirmedEmail) {
     this.unconfirmedEmail = unconfirmedEmail;
   }
+
+    /**
+     * @return the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    /**
+     * @return the emailVerified
+     */
+    public boolean isEmailVerified() {
+        return emailVerified;
+    }
+
+    /**
+     * @param emailVerified the emailVerified to set
+     */
+    public void setEmailVerified(boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+    /**
+     * @return the displayName
+     */
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    /**
+     * @param displayName the displayName to set
+     */
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    /**
+     * @return the photoUrl
+     */
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    /**
+     * @param photoUrl the photoUrl to set
+     */
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    /**
+     * @return the disabled
+     */
+    public boolean isDisabled() {
+        return disabled;
+    }
+
+    /**
+     * @param disabled the disabled to set
+     */
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
+
+    /**
+     * @return the customClaims
+     */
+    public Map<String, Object> getCustomClaims() {
+        return customClaims;
+    }
+
+    /**
+     * @param customClaims the customClaims to set
+     */
+    public void setCustomClaims(Map<String, Object> customClaims) {
+        this.customClaims = customClaims;
+    }
 
 }

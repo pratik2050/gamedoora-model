@@ -3,11 +3,10 @@ package com.gamedoora.model.dto;
 
 import java.util.Date;
 
-public class Identities {
+public class GdTag {
 
   private long id;
-  private String uid;
-  private String provider;
+  private String name;
   private Date createdAt;
   private Date updatedAt;
 
@@ -21,21 +20,12 @@ public class Identities {
   }
 
 
-  public String getUid() {
-    return uid;
+  public String getName() {
+    return name;
   }
 
-  public void setUid(String uid) {
-    this.uid = uid;
-  }
-
-
-  public String getProvider() {
-    return provider;
-  }
-
-  public void setProvider(String provider) {
-    this.provider = provider;
+  public void setName(String name) {
+    this.name = name;
   }
 
 

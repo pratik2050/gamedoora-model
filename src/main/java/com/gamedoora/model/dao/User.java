@@ -17,7 +17,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class Users implements Serializable {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
@@ -89,9 +89,9 @@ public class Users implements Serializable {
     @Column(name = "unconfirmed_email", table = "users")
     private String unconfirmedEmail;
     @OneToMany
-    private List<StoryUsers> storyUserses;
+    private List<StoryUser> storyUsers;
     @OneToMany
-    private List<StudioUserRequests> studioUserRequestses;
+    private List<StudioUserRequest> studioUserRequests;
 
     public Integer getId() {
         return id;
@@ -253,42 +253,42 @@ public class Users implements Serializable {
         this.unconfirmedEmail = unconfirmedEmail;
     }
 
-    public List<StoryUsers> getStoryUserses() {
-        if (storyUserses == null) {
-            storyUserses = new ArrayList<>();
+    public List<StoryUser> getStoryUsers() {
+        if (storyUsers == null) {
+            storyUsers = new ArrayList<>();
         }
-        return storyUserses;
+        return storyUsers;
     }
 
-    public void setStoryUserses(List<StoryUsers> storyUserses) {
-        this.storyUserses = storyUserses;
+    public void setStoryUsers(List<StoryUser> storyUsers) {
+        this.storyUsers = storyUsers;
     }
 
-    public void addStoryUserse(StoryUsers storyUserse) {
-        getStoryUserses().add(storyUserse);
+    public void addStoryUser(StoryUser storyUser) {
+        getStoryUsers().add(storyUser);
     }
 
-    public void removeStoryUserse(StoryUsers storyUserse) {
-        getStoryUserses().remove(storyUserse);
+    public void removeStoryUser(StoryUser storyUser) {
+        getStoryUsers().remove(storyUser);
     }
 
-    public List<StudioUserRequests> getStudioUserRequestses() {
-        if (studioUserRequestses == null) {
-            studioUserRequestses = new ArrayList<>();
+    public List<StudioUserRequest> getStudioUserRequests() {
+        if (studioUserRequests == null) {
+            studioUserRequests = new ArrayList<>();
         }
-        return studioUserRequestses;
+        return studioUserRequests;
     }
 
-    public void setStudioUserRequestses(List<StudioUserRequests> studioUserRequestses) {
-        this.studioUserRequestses = studioUserRequestses;
+    public void setStudioUserRequests(List<StudioUserRequest> studioUserRequests) {
+        this.studioUserRequests = studioUserRequests;
     }
 
-    public void addStudioUserRequestse(StudioUserRequests studioUserRequestse) {
-        getStudioUserRequestses().add(studioUserRequestse);
+    public void addStudioUserRequest(StudioUserRequest studioUserRequest) {
+        getStudioUserRequests().add(studioUserRequest);
     }
 
-    public void removeStudioUserRequestse(StudioUserRequests studioUserRequestse) {
-        getStudioUserRequestses().remove(studioUserRequestse);
+    public void removeStudioUserRequest(StudioUserRequest studioUserRequest) {
+        getStudioUserRequests().remove(studioUserRequest);
     }
 
 }

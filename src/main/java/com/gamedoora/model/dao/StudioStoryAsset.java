@@ -12,28 +12,25 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "story_users")
-public class StoryUsers implements Serializable {
+@Table(name = "studio_story_assets")
+public class StudioStoryAsset implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "story_users", nullable = false)
+    @Column(name = "id", table = "studio_story_assets", nullable = false)
     private Integer id;
+    @Basic
+    @Column(name = "story_id", table = "studio_story_assets")
+    private Integer storyId;
+    @Basic
+    @Column(name = "studio_asset_id", table = "studio_story_assets")
+    private Integer studioAssetId;
     @Basic(optional = false)
-    @Column(name = "story_id", table = "story_users", nullable = false)
-    private int storyId;
-    @Basic(optional = false)
-    @Column(name = "user_id", table = "story_users", nullable = false)
-    private int userId;
-    @Basic(optional = false)
-    @Column(name = "role", table = "story_users", nullable = false)
-    private int role;
-    @Basic(optional = false)
-    @Column(name = "created_at", table = "story_users", nullable = false)
+    @Column(name = "created_at", table = "studio_story_assets", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "story_users", nullable = false)
+    @Column(name = "updated_at", table = "studio_story_assets", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -45,28 +42,20 @@ public class StoryUsers implements Serializable {
         this.id = id;
     }
 
-    public int getStoryId() {
+    public Integer getStoryId() {
         return storyId;
     }
 
-    public void setStoryId(int storyId) {
+    public void setStoryId(Integer storyId) {
         this.storyId = storyId;
     }
 
-    public int getUserId() {
-        return userId;
+    public Integer getStudioAssetId() {
+        return studioAssetId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
+    public void setStudioAssetId(Integer studioAssetId) {
+        this.studioAssetId = studioAssetId;
     }
 
     public Date getCreatedAt() {

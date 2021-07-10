@@ -3,12 +3,12 @@ package com.gamedoora.model.dto;
 
 import java.util.Date;
 
-public class Tasks {
+public class GdState {
 
   private long id;
-  private long storyId;
-  private String description;
-  private long isDone;
+  private String name;
+  private long studioId;
+  private long position;
   private Date createdAt;
   private Date updatedAt;
 
@@ -22,30 +22,30 @@ public class Tasks {
   }
 
 
-  public long getStoryId() {
-    return storyId;
+  public String getName() {
+    return name;
   }
 
-  public void setStoryId(long storyId) {
-    this.storyId = storyId;
-  }
-
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
-  public long getIsDone() {
-    return isDone;
+  public long getStudioId() {
+    return studioId;
   }
 
-  public void setIsDone(long isDone) {
-    this.isDone = isDone;
+  public void setStudioId(long studioId) {
+    this.studioId = studioId;
+  }
+
+
+  public long getPosition() {
+    return position;
+  }
+
+  public void setPosition(long position) {
+    this.position = position;
   }
 
 

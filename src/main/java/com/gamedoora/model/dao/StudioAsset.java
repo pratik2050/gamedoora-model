@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "studio_assets")
-public class StudioAssets implements Serializable {
+public class StudioAsset implements Serializable {
 
     @Id
     @GeneratedValue
@@ -95,7 +95,7 @@ public class StudioAssets implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
     @OneToMany
-    private List<StudioStoryAssets> studioStoryAssetses;
+    private List<StudioStoryAsset> studioStoryAssets;
 
     public Integer getId() {
         return id;
@@ -281,23 +281,23 @@ public class StudioAssets implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public List<StudioStoryAssets> getStudioStoryAssetses() {
-        if (studioStoryAssetses == null) {
-            studioStoryAssetses = new ArrayList<>();
+    public List<StudioStoryAsset> getStudioStoryAssets() {
+        if (studioStoryAssets == null) {
+            studioStoryAssets = new ArrayList<>();
         }
-        return studioStoryAssetses;
+        return studioStoryAssets;
     }
 
-    public void setStudioStoryAssetses(List<StudioStoryAssets> studioStoryAssetses) {
-        this.studioStoryAssetses = studioStoryAssetses;
+    public void setStudioStoryAssets(List<StudioStoryAsset> studioStoryAssets) {
+        this.studioStoryAssets = studioStoryAssets;
     }
 
-    public void addStudioStoryAssetse(StudioStoryAssets studioStoryAssetse) {
-        getStudioStoryAssetses().add(studioStoryAssetse);
+    public void addStudioStoryAsset(StudioStoryAsset studioStoryAsset) {
+        getStudioStoryAssets().add(studioStoryAsset);
     }
 
-    public void removeStudioStoryAssetse(StudioStoryAssets studioStoryAssetse) {
-        getStudioStoryAssetses().remove(studioStoryAssetse);
+    public void removeStudioStoryAsset(StudioStoryAsset studioStoryAsset) {
+        getStudioStoryAssets().remove(studioStoryAsset);
     }
 
 }

@@ -3,7 +3,7 @@ package com.gamedoora.model.dto;
 
 import java.util.Date;
 
-public class Studios {
+public class GdStudio {
 
   private long id;
   private String name;

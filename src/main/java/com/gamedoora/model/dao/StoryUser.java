@@ -12,28 +12,28 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "tenant_users")
-public class TenantUsers implements Serializable {
+@Table(name = "story_users")
+public class StoryUser implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "tenant_users", nullable = false)
+    @Column(name = "id", table = "story_users", nullable = false)
     private Integer id;
-    @Basic
-    @Column(name = "tenant_id", table = "tenant_users")
-    private Integer tenantId;
-    @Basic
-    @Column(name = "user_id", table = "tenant_users")
-    private Integer userId;
-    @Basic
-    @Column(name = "role", table = "tenant_users")
-    private String role;
     @Basic(optional = false)
-    @Column(name = "created_at", table = "tenant_users", nullable = false)
+    @Column(name = "story_id", table = "story_users", nullable = false)
+    private int storyId;
+    @Basic(optional = false)
+    @Column(name = "user_id", table = "story_users", nullable = false)
+    private int userId;
+    @Basic(optional = false)
+    @Column(name = "role", table = "story_users", nullable = false)
+    private int role;
+    @Basic(optional = false)
+    @Column(name = "created_at", table = "story_users", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "tenant_users", nullable = false)
+    @Column(name = "updated_at", table = "story_users", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -45,27 +45,27 @@ public class TenantUsers implements Serializable {
         this.id = id;
     }
 
-    public Integer getTenantId() {
-        return tenantId;
+    public int getStoryId() {
+        return storyId;
     }
 
-    public void setTenantId(Integer tenantId) {
-        this.tenantId = tenantId;
+    public void setStoryId(int storyId) {
+        this.storyId = storyId;
     }
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public String getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(int role) {
         this.role = role;
     }
 
