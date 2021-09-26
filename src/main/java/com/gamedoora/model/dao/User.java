@@ -4,291 +4,328 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User implements Serializable {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", table = "users", nullable = false)
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "email", table = "users", nullable = false)
-    private String email;
-    @Basic(optional = false)
-    @Column(name = "encrypted_password", table = "users", nullable = false)
-    private String encryptedPassword;
-    @Basic
-    @Column(name = "reset_password_token", table = "users")
-    private String resetPasswordToken;
-    @Basic
-    @Column(name = "reset_password_sent_at", table = "users")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date resetPasswordSentAt;
-    @Basic
-    @Column(name = "remember_created_at", table = "users")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date rememberCreatedAt;
-    @Basic(optional = false)
-    @Column(name = "sign_in_count", table = "users", nullable = false)
-    private int signInCount;
-    @Basic
-    @Column(name = "current_sign_in_at", table = "users")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date currentSignInAt;
-    @Basic
-    @Column(name = "last_sign_in_at", table = "users")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastSignInAt;
-    @Basic
-    @Column(name = "current_sign_in_ip", table = "users")
-    private String currentSignInIp;
-    @Basic
-    @Column(name = "last_sign_in_ip", table = "users")
-    private String lastSignInIp;
-    @Basic(optional = false)
-    @Column(name = "created_at", table = "users", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-    @Basic(optional = false)
-    @Column(name = "updated_at", table = "users", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
-    @Basic
-    @Column(name = "provider", table = "users")
-    private String provider;
-    @Basic
-    @Column(name = "uid", table = "users")
-    private String uid;
-    @Basic
-    @Column(name = "name", table = "users")
-    private String name;
-    @Basic
-    @Column(name = "confirmation_token", table = "users")
-    private String confirmationToken;
-    @Basic
-    @Column(name = "confirmed_at", table = "users")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date confirmedAt;
-    @Basic
-    @Column(name = "confirmation_sent_at", table = "users")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date confirmationSentAt;
-    @Basic
-    @Column(name = "unconfirmed_email", table = "users")
-    private String unconfirmedEmail;
-    @OneToMany
-    private List<StoryUser> storyUsers;
-    @OneToMany
-    private List<StudioUserRequest> studioUserRequests;
+	@Id
+	@GeneratedValue
+	@Column(name = "id", table = "users", nullable = false)
+	private Long id;
 
-    public Integer getId() {
-        return id;
-    }
+	@Basic(optional = false)
+	@Column(name = "email", table = "users", nullable = false)
+	private String email;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	@Basic(optional = false)
+	@Column(name = "encrypted_password", table = "users", nullable = false)
+	private String encryptedPassword;
 
-    public String getEmail() {
-        return email;
-    }
+	@Basic
+	@Column(name = "reset_password_token", table = "users")
+	private String resetPasswordToken;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	@Basic
+	@Column(name = "reset_password_sent_at", table = "users")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date resetPasswordSentAt;
 
-    public String getEncryptedPassword() {
-        return encryptedPassword;
-    }
+	@Basic
+	@Column(name = "remember_created_at", table = "users")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date rememberCreatedAt;
+	@Basic(optional = false)
+	@Column(name = "sign_in_count", table = "users", nullable = false)
+	private int signInCount;
 
-    public void setEncryptedPassword(String encryptedPassword) {
-        this.encryptedPassword = encryptedPassword;
-    }
+	@Basic
+	@Column(name = "current_sign_in_at", table = "users")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date currentSignInAt;
 
-    public String getResetPasswordToken() {
-        return resetPasswordToken;
-    }
+	@Basic
+	@Column(name = "last_sign_in_at", table = "users")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastSignInAt;
+	@Basic
+	@Column(name = "current_sign_in_ip", table = "users")
+	private String currentSignInIp;
 
-    public void setResetPasswordToken(String resetPasswordToken) {
-        this.resetPasswordToken = resetPasswordToken;
-    }
+	@Basic
+	@Column(name = "last_sign_in_ip", table = "users")
+	private String lastSignInIp;
 
-    public Date getResetPasswordSentAt() {
-        return resetPasswordSentAt;
-    }
+	@Basic(optional = false)
+	@Column(name = "created_at", table = "users", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdAt;
 
-    public void setResetPasswordSentAt(Date resetPasswordSentAt) {
-        this.resetPasswordSentAt = resetPasswordSentAt;
-    }
+	@Basic(optional = false)
+	@Column(name = "updated_at", table = "users", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedAt;
 
-    public Date getRememberCreatedAt() {
-        return rememberCreatedAt;
-    }
+	@Basic
+	@Column(name = "provider", table = "users")
+	private String provider;
 
-    public void setRememberCreatedAt(Date rememberCreatedAt) {
-        this.rememberCreatedAt = rememberCreatedAt;
-    }
+	@Basic
+	@Column(name = "uid", table = "users")
+	private String uid;
 
-    public int getSignInCount() {
-        return signInCount;
-    }
+	@Basic
+	@Column(name = "name", table = "users")
+	private String name;
 
-    public void setSignInCount(int signInCount) {
-        this.signInCount = signInCount;
-    }
+	@Basic
+	@Column(name = "confirmation_token", table = "users")
+	private String confirmationToken;
 
-    public Date getCurrentSignInAt() {
-        return currentSignInAt;
-    }
+	@Basic
+	@Column(name = "confirmed_at", table = "users")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date confirmedAt;
 
-    public void setCurrentSignInAt(Date currentSignInAt) {
-        this.currentSignInAt = currentSignInAt;
-    }
+	@Basic
+	@Column(name = "confirmation_sent_at", table = "users")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date confirmationSentAt;
 
-    public Date getLastSignInAt() {
-        return lastSignInAt;
-    }
+	@Basic
+	@Column(name = "unconfirmed_email", table = "users")
+	private String unconfirmedEmail;
+	@OneToMany
+	private List<StoryUser> storyUsers;
 
-    public void setLastSignInAt(Date lastSignInAt) {
-        this.lastSignInAt = lastSignInAt;
-    }
+	@OneToMany
+	private List<StudioUserRequest> studioUserRequests;
 
-    public String getCurrentSignInIp() {
-        return currentSignInIp;
-    }
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles = new HashSet<>();
 
-    public void setCurrentSignInIp(String currentSignInIp) {
-        this.currentSignInIp = currentSignInIp;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getLastSignInIp() {
-        return lastSignInIp;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setLastSignInIp(String lastSignInIp) {
-        this.lastSignInIp = lastSignInIp;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
+	public String getEncryptedPassword() {
+		return encryptedPassword;
+	}
 
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
+	public void setEncryptedPassword(String encryptedPassword) {
+		this.encryptedPassword = encryptedPassword;
+	}
 
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+	public String getResetPasswordToken() {
+		return resetPasswordToken;
+	}
 
-    public String getProvider() {
-        return provider;
-    }
+	public void setResetPasswordToken(String resetPasswordToken) {
+		this.resetPasswordToken = resetPasswordToken;
+	}
 
-    public void setProvider(String provider) {
-        this.provider = provider;
-    }
+	public Date getResetPasswordSentAt() {
+		return resetPasswordSentAt;
+	}
 
-    public String getUid() {
-        return uid;
-    }
+	public void setResetPasswordSentAt(Date resetPasswordSentAt) {
+		this.resetPasswordSentAt = resetPasswordSentAt;
+	}
 
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
+	public Date getRememberCreatedAt() {
+		return rememberCreatedAt;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setRememberCreatedAt(Date rememberCreatedAt) {
+		this.rememberCreatedAt = rememberCreatedAt;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public int getSignInCount() {
+		return signInCount;
+	}
 
-    public String getConfirmationToken() {
-        return confirmationToken;
-    }
+	public void setSignInCount(int signInCount) {
+		this.signInCount = signInCount;
+	}
 
-    public void setConfirmationToken(String confirmationToken) {
-        this.confirmationToken = confirmationToken;
-    }
+	public Date getCurrentSignInAt() {
+		return currentSignInAt;
+	}
 
-    public Date getConfirmedAt() {
-        return confirmedAt;
-    }
+	public void setCurrentSignInAt(Date currentSignInAt) {
+		this.currentSignInAt = currentSignInAt;
+	}
 
-    public void setConfirmedAt(Date confirmedAt) {
-        this.confirmedAt = confirmedAt;
-    }
+	public Date getLastSignInAt() {
+		return lastSignInAt;
+	}
 
-    public Date getConfirmationSentAt() {
-        return confirmationSentAt;
-    }
+	public void setLastSignInAt(Date lastSignInAt) {
+		this.lastSignInAt = lastSignInAt;
+	}
 
-    public void setConfirmationSentAt(Date confirmationSentAt) {
-        this.confirmationSentAt = confirmationSentAt;
-    }
+	public String getCurrentSignInIp() {
+		return currentSignInIp;
+	}
 
-    public String getUnconfirmedEmail() {
-        return unconfirmedEmail;
-    }
+	public void setCurrentSignInIp(String currentSignInIp) {
+		this.currentSignInIp = currentSignInIp;
+	}
 
-    public void setUnconfirmedEmail(String unconfirmedEmail) {
-        this.unconfirmedEmail = unconfirmedEmail;
-    }
+	public String getLastSignInIp() {
+		return lastSignInIp;
+	}
 
-    public List<StoryUser> getStoryUsers() {
-        if (storyUsers == null) {
-            storyUsers = new ArrayList<>();
-        }
-        return storyUsers;
-    }
+	public void setLastSignInIp(String lastSignInIp) {
+		this.lastSignInIp = lastSignInIp;
+	}
 
-    public void setStoryUsers(List<StoryUser> storyUsers) {
-        this.storyUsers = storyUsers;
-    }
+	public Date getCreatedAt() {
+		return createdAt;
+	}
 
-    public void addStoryUser(StoryUser storyUser) {
-        getStoryUsers().add(storyUser);
-    }
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
 
-    public void removeStoryUser(StoryUser storyUser) {
-        getStoryUsers().remove(storyUser);
-    }
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
 
-    public List<StudioUserRequest> getStudioUserRequests() {
-        if (studioUserRequests == null) {
-            studioUserRequests = new ArrayList<>();
-        }
-        return studioUserRequests;
-    }
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 
-    public void setStudioUserRequests(List<StudioUserRequest> studioUserRequests) {
-        this.studioUserRequests = studioUserRequests;
-    }
+	public String getProvider() {
+		return provider;
+	}
 
-    public void addStudioUserRequest(StudioUserRequest studioUserRequest) {
-        getStudioUserRequests().add(studioUserRequest);
-    }
+	public void setProvider(String provider) {
+		this.provider = provider;
+	}
 
-    public void removeStudioUserRequest(StudioUserRequest studioUserRequest) {
-        getStudioUserRequests().remove(studioUserRequest);
-    }
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getConfirmationToken() {
+		return confirmationToken;
+	}
+
+	public void setConfirmationToken(String confirmationToken) {
+		this.confirmationToken = confirmationToken;
+	}
+
+	public Date getConfirmedAt() {
+		return confirmedAt;
+	}
+
+	public void setConfirmedAt(Date confirmedAt) {
+		this.confirmedAt = confirmedAt;
+	}
+
+	public Date getConfirmationSentAt() {
+		return confirmationSentAt;
+	}
+
+	public void setConfirmationSentAt(Date confirmationSentAt) {
+		this.confirmationSentAt = confirmationSentAt;
+	}
+
+	public String getUnconfirmedEmail() {
+		return unconfirmedEmail;
+	}
+
+	public void setUnconfirmedEmail(String unconfirmedEmail) {
+		this.unconfirmedEmail = unconfirmedEmail;
+	}
+
+	public List<StoryUser> getStoryUsers() {
+		if (storyUsers == null) {
+			storyUsers = new ArrayList<>();
+		}
+		return storyUsers;
+	}
+
+	public void setStoryUsers(List<StoryUser> storyUsers) {
+		this.storyUsers = storyUsers;
+	}
+
+	public void addStoryUser(StoryUser storyUser) {
+		getStoryUsers().add(storyUser);
+	}
+
+	public void removeStoryUser(StoryUser storyUser) {
+		getStoryUsers().remove(storyUser);
+	}
+
+	public List<StudioUserRequest> getStudioUserRequests() {
+		if (studioUserRequests == null) {
+			studioUserRequests = new ArrayList<>();
+		}
+		return studioUserRequests;
+	}
+
+	public void setStudioUserRequests(List<StudioUserRequest> studioUserRequests) {
+		this.studioUserRequests = studioUserRequests;
+	}
+
+	public void addStudioUserRequest(StudioUserRequest studioUserRequest) {
+		getStudioUserRequests().add(studioUserRequest);
+	}
+
+	public void removeStudioUserRequest(StudioUserRequest studioUserRequest) {
+		getStudioUserRequests().remove(studioUserRequest);
+	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 
 }
