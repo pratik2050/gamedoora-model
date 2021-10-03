@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="DEFAULT_PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.gamedoora.model.dao.Tenants</class>
+    <class>com.gamedoora.model.dao.Comments</class>
+    <class>com.gamedoora.model.dao.Stories</class>
+    <class>com.gamedoora.model.dao.Studios</class>
+    <class>com.gamedoora.model.dao.StudioAssets</class>
+    <class>com.gamedoora.model.dao.StudioUserRequests</class>
+    <class>com.gamedoora.model.dao.TagEntities</class>
+    <class>com.gamedoora.model.dao.StudioStoryAssets</class>
+    <class>com.gamedoora.model.dao.Users</class>
+    <class>com.gamedoora.model.dao.States</class>
+    <class>com.gamedoora.model.dao.Tags</class>
+    <class>com.gamedoora.model.dao.Identities</class>
+    <class>com.gamedoora.model.dao.StoryUsers</class>
+    <class>com.gamedoora.model.dao.NotificationUsers</class>
+    <class>com.gamedoora.model.dao.Notifications</class>
+    <class>com.gamedoora.model.dao.Tasks</class>
+    <class>com.gamedoora.model.dao.TenantUsers</class>
+    <class>com.gamedoora.model.dao.Roles</class>
+    <class>com.gamedoora.model.dao.Tenant</class>
+    <class>com.gamedoora.model.dao.Story</class>
+    <class>com.gamedoora.model.dao.Studio</class>
+    <class>com.gamedoora.model.dao.StudioAsset</class>
+    <class>com.gamedoora.model.dao.StudioUserRequest</class>
+    <class>com.gamedoora.model.dao.TagEntitiy</class>
+    <class>com.gamedoora.model.dao.StudioStoryAsset</class>
+    <class>com.gamedoora.model.dao.User</class>
+    <class>com.gamedoora.model.dao.Tag</class>
+    <class>com.gamedoora.model.dao.Identity</class>
+    <class>com.gamedoora.model.dao.StoryUser</class>
+    <class>com.gamedoora.model.dao.NotificationUser</class>
+    <class>com.gamedoora.model.dao.Notification</class>
+    <class>com.gamedoora.model.dao.Task</class>
+    <class>com.gamedoora.model.dao.TenantUser</class>
+    <class>com.gamedoora.model.dao.Role</class>
+    <class>com.gamedoora.model.dao.Comment</class>
+    <class>com.gamedoora.model.dao.State</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
+      <property name="javax.persistence.jdbc.password" value="app"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.user" value="app"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+</persistence>
