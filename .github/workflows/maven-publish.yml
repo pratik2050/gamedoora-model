@@ -41,7 +41,7 @@ jobs:
 
     - name: display
       run: |
-          echo "$(cat ~/.m2/settings.xml)"
+          echo "$(cat settings.xml)"
     - name: Deploy to GitHub
       env:
         GITHUB_TOKEN_REF: ${{ secrets.DEV }}
