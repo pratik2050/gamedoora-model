@@ -43,10 +43,10 @@ jobs:
       run: |
           echo "$(cat ~/.m2/settings.xml)"
     - name: Deploy to GitHub
-      run: mvn -B -Pgithub deploy --file pom.xml
       env:
         GITHUB_TOKEN_REF: ${{ secrets.DEV }}
         GITHUB_USER_REF: ${{secrets.DEV_USER}}
+      run: mvn --settings settings.xml --file pom.xml deploy
     - name: Commit files
       run: |
         git config --local user.email "revision-updater@redhat.com"
