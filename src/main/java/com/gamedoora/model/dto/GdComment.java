@@ -3,7 +3,7 @@ package com.gamedoora.model.dto;
 
 import java.util.Date;
 
-public class Comments {
+public class GdComment {
 
   private long id;
   private String context;

@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "notification_users")
-public class NotificationUsers implements Serializable {
+public class NotificationUser implements Serializable {
 
     @Id
     @GeneratedValue

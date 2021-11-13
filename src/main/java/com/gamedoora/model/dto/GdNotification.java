@@ -3,7 +3,7 @@ package com.gamedoora.model.dto;
 
 import java.util.Date;
 
-public class Notifications {
+public class GdNotification {
 
   private long id;
   private String uid;

@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "studio_user_requests")
-public class StudioUserRequests implements Serializable {
+public class StudioUserRequest implements Serializable {
 
     @Id
     @GeneratedValue
