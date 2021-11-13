@@ -40,6 +40,9 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: display
+      env:
+        GITHUB_TOKEN_REF: ${{ secrets.DEV }}
+        GITHUB_USER_REF: ${{secrets.DEV_USER}}
       run: |
           echo "$(cat settings.xml)"
     - name: Deploy to GitHub
@@ -49,7 +52,7 @@ jobs:
       run: mvn --settings settings.xml --file pom.xml deploy -Pgithub
     - name: Commit files
       run: |
-        git config --local user.email "revision-updater@redhat.com"
+        git config --local user.email "revision-updater@gamedoora.com"
         git config --local user.name "Version Upgrader"
         git commit -m "Version upgrade" -a
         echo "TAG = $GIT_TAG"
