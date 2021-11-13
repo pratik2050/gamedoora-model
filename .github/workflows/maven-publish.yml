@@ -25,6 +25,8 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+        server-username: GITHUB_USER_REF
+        server-password: GITHUB_TOKEN_REF
         settings-path: ${{ github.workspace }} 
         
 
@@ -39,10 +41,10 @@ jobs:
 
 
     - name: Deploy to GitHub
-      run: mvn -B -Pgithub deploy
+      run: mvn -B -Pgithub deploy --file pom.xml
       env:
-        GITHUB_TOKEN: ${{ secrets.DEV }}
-
+        GITHUB_TOKEN_REF: ${{ secrets.DEV }}
+        GITHUB_USER_REF: ${{secrets.DEV_USER}}
     - name: Commit files
       run: |
         git config --local user.email "revision-updater@redhat.com"
