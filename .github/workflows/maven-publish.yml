@@ -27,28 +27,28 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-      - name: Version bump for pom.xml
-         run: mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion} versions:commit --file pom.xml
+    - name: Version bump for pom.xml
+      run: mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion} versions:commit --file pom.xml
 
-      - name: Update versions for latest libraries
-        run: |
+    - name: Update versions for latest libraries
+      run: |
           echo "GIT_TAG=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
-      - name: Build with Maven
-          run: mvn -B package --file pom.xml
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
 
 
-      - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GAMEDOORA_PKGS }}
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+      env:
+        GITHUB_TOKEN: ${{ secrets.GAMEDOORA_PKGS }}
 
-      - name: Commit files
-        run: |
-          git config --local user.email "revision-updater@redhat.com"
-          git config --local user.name "Version Upgrader"
-          git commit -m "Version upgrade" -a
-          echo "TAG = $GIT_TAG"
-          git tag "$GIT_TAG"
-          git push origin master
-          git push origin "$GIT_TAG"
+    - name: Commit files
+      run: |
+        git config --local user.email "revision-updater@redhat.com"
+        git config --local user.name "Version Upgrader"
+        git commit -m "Version upgrade" -a
+        echo "TAG = $GIT_TAG"
+        git tag "$GIT_TAG"
+        git push origin master
+        git push origin "$GIT_TAG"
 
