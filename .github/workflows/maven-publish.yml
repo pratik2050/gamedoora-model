@@ -39,7 +39,7 @@ jobs:
 
 
     - name: Deploy to GitHub
-      run: mvn --batch-mode -DuseGitHubPackages=true deploy -s $GITHUB_WORKSPACE/settings.xml
+      run: mvn -B -Pgithub deploy
       env:
         GITHUB_TOKEN: ${{ secrets.DEV }}
 
