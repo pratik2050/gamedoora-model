@@ -40,7 +40,7 @@ jobs:
     - name: Deploy to GitHub
       run: mvn --batch-mode -DuseGitHubPackages=true deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.gamedoora-pkgs-org }}
+        GITHUB_TOKEN: ${{ secrets.GAMEDOORA_PKGS }}
 
     - name: Commit files
       run: |
