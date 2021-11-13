@@ -12,7 +12,7 @@
             <repositories>
                 <repository>
                     <id>github</id>
-                    <name>GitHub TobseF Apache Maven Packages</name>
+                    <name>GitHub ap Apache Maven Packages</name>
                     <url>https://maven.pkg.github.com/aprajshekhar</url>
                 </repository>
             </repositories>
@@ -22,7 +22,7 @@
     <servers>
         <server>
             <id>github</id>
-            <username>${env.USER}</username>
+            <username>${env.DEV_USER}</username>
             <password>${env.DEV}</password>
         </server>
     </servers>
