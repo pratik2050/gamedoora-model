@@ -46,7 +46,7 @@ jobs:
       env:
         GITHUB_TOKEN_REF: ${{ secrets.DEV }}
         GITHUB_USER_REF: ${{secrets.DEV_USER}}
-      run: mvn --settings settings.xml --file pom.xml deploy
+      run: mvn --settings settings.xml --file pom.xml deploy -Pgithub
     - name: Commit files
       run: |
         git config --local user.email "revision-updater@redhat.com"
