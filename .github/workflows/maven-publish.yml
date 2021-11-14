@@ -40,7 +40,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Deploy to GitHub
-      run: mvn  -Drepo.id=respy -Drepo.login=${{secrets.USER}} -Drepo.pwd=${{secrets.PASS}} deploy 
+      run: mvn -e -X -Drepo.id=respy -Drepo.login=${{secrets.USER}} -Drepo.pwd=${{secrets.PASS}} deploy 
     - name: Commit files
       run: |
         git config --local user.email "revision-updater@gamedoora.com"
