@@ -40,7 +40,7 @@ jobs:
       run: mvn -B package --file pom.xml --settings /home/runner/.m2/settings.xml
 
     - name: Deploy to GitHub
-      run: mvn -e -X  deploy 
+      run: mvn -e -X --settings /home/runner/.m2/settings.xml deploy 
     - name: Commit files
       run: |
         git config --local user.email "revision-updater@gamedoora.com"
