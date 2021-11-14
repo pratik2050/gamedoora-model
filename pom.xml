@@ -19,7 +19,7 @@
     <repository>
       <id>repsy</id>
       <name>My Private Maven Repository on Repsy</name>
-      <url>https://repo.repsy.io/mvn/apraj/gamedoors</url>
+      <url>https://repo.repsy.io/mvn/apraj/gamedoora</url>
     </repository>
 
     <!-- ... Some other Distribution repository definitions -->
