@@ -30,6 +30,5 @@
            <username>${env.USER}</username>
            <password>${env.PASS}</password>
         </server>
-  </servers>
     </servers>
 </settings>
