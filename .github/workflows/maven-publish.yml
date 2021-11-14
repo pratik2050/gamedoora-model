@@ -25,8 +25,8 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        server-username: GITHUB_USER_REF
-        server-password: GITHUB_TOKEN_REF
+        server-username: USER
+        server-password: PASS
         settings-path: ${{ github.workspace }} 
         
 
@@ -41,8 +41,8 @@ jobs:
 
     - name: display
       env:
-        GITHUB_TOKEN_REF: ${{ secrets.PASS }}
-        GITHUB_USER_REF: ${{secrets.USER}}
+        PASS: ${{ secrets.PASS }}
+        USER: ${{secrets.USER}}
       run: |
           echo "${{ secrets.USER }}"
           echo ${{secrets.USER}} | sed 's/./& /g' 
