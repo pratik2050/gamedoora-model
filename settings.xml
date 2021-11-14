@@ -25,5 +25,11 @@
             <username>${env.DEV_USER}</username>
             <password>${env.DEV}</password>
         </server>
+        <server>
+           <id>repsy</id>
+           <username>${env.USER}</username>
+           <password>${env.PASS}</password>
+        </server>
+  </servers>
     </servers>
 </settings>
