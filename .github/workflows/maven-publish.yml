@@ -27,7 +27,7 @@ jobs:
         server-id: repsy # Value of the distributionManagement/repository/id field of the pom.xml
         server-username: ${{env.REPSY_USER}}
         server-password: ${{env.REPSY_PASS}}  
-        
+        overwrite-settings: false
 
     - name: Version bump for pom.xml
       run: mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion} versions:commit --file pom.xml
