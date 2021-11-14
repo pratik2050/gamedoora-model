@@ -44,7 +44,7 @@ jobs:
         GITHUB_TOKEN_REF: ${{ secrets.PASS }}
         GITHUB_USER_REF: ${{secrets.USER}}
       run: |
-          echo "$(cat settings.xml)"
+          echo "${{ secrets.USER }}"
     - name: Deploy to GitHub
       env:
         GITHUB_TOKEN_REF: ${{ secrets.PASS }}
