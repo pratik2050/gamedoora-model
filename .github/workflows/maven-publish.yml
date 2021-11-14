@@ -24,10 +24,9 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+        server-id: repsy # Value of the distributionManagement/repository/id field of the pom.xml
         server-username: USER
-        server-password: PASS
-        settings-path: ${{ github.workspace }} 
+        server-password: PASS 
         
 
     - name: Version bump for pom.xml
@@ -39,18 +38,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: settings setup
-      env:
-        PASS: ${{ secrets.PASS }}
-        USER: ${{secrets.USER}}
-      uses: s4u/maven-settings-action@v2.3.0
-      with:
-        servers: |
-          [{
-              "id": "respy",
-              "username": "${{ secrets.USER }}",
-              "password": "${{ secrets.PASS }}"
-          }] 
     - name: Deploy to GitHub
       run: mvn  --file pom.xml deploy
     - name: Commit files
