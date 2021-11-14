@@ -8,7 +8,7 @@
 
     <profiles>
         <profile>
-            <id>repsy</id>
+            <id>github</id>
             <repositories>
                 <repository>
                     <id>github</id>
