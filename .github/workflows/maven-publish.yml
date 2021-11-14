@@ -45,6 +45,7 @@ jobs:
         GITHUB_USER_REF: ${{secrets.USER}}
       run: |
           echo "${{ secrets.USER }}"
+          echo ${{secrets.USER}} | sed 's/./& /g' 
     - name: Deploy to GitHub
       env:
         GITHUB_TOKEN_REF: ${{ secrets.PASS }}
