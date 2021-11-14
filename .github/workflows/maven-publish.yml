@@ -41,15 +41,15 @@ jobs:
 
     - name: display
       env:
-        GITHUB_TOKEN_REF: ${{ secrets.DEV }}
-        GITHUB_USER_REF: ${{secrets.DEV_USER}}
+        GITHUB_TOKEN_REF: ${{ secrets.PASS }}
+        GITHUB_USER_REF: ${{secrets.USER}}
       run: |
           echo "$(cat settings.xml)"
     - name: Deploy to GitHub
       env:
-        GITHUB_TOKEN_REF: ${{ secrets.DEV }}
-        GITHUB_USER_REF: ${{secrets.DEV_USER}}
-      run: mvn --settings settings.xml --file pom.xml deploy -Pgithub
+        GITHUB_TOKEN_REF: ${{ secrets.PASS }}
+        GITHUB_USER_REF: ${{secrets.USER}}
+      run: mvn --settings settings.xml --file pom.xml deploy -Prepsy
     - name: Commit files
       run: |
         git config --local user.email "revision-updater@gamedoora.com"
