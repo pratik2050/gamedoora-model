@@ -8,13 +8,23 @@
 
     <profiles>
         <profile>
-            <id>github</id>
+            <id>repsy</id>
             <repositories>
                 <repository>
                     <id>github</id>
                     <name>GitHub ap Apache Maven Packages</name>
                     <url>https://maven.pkg.github.com/aprajshekhar</url>
                 </repository>
+            </repositories>
+        </profile>
+              <profile>
+            <id>repsy</id>
+            <repositories>
+                <repository>
+                    <id>repsy</id>
+                              <name>My Private Maven Repository on Repsy</name>
+                              <url>https://repo.repsy.io/mvn/apraj/gamedoora</url>
+                    </repository>
             </repositories>
         </profile>
     </profiles>
