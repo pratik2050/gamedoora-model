@@ -24,10 +24,15 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
-        server-id: repsy # Value of the distributionManagement/repository/id field of the pom.xml
-        server-username: ${{secrets.USER}}
-        server-password: ${{secrets.PASS}}  
-        overwrite-settings: true
+    - name: Download Maven
+      run: |
+        curl -sL https://www-eu.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip -o maven.zip
+        apt-get update
+        apt-get -y install unzip
+        unzip -d /usr/share maven.zip
+        rm maven.zip
+        ln -s /usr/share/apache-maven-3.6.3/bin/mvn /usr/bin/mvn
+        echo "M2_HOME=/usr/share/apache-maven-3.6.3" | tee -a /etc/environment
 
     - name: Version bump for pom.xml
       run: mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion} versions:commit --file pom.xml
@@ -35,12 +40,12 @@ jobs:
     - name: Update versions for latest libraries
       run: |
           echo "GIT_TAG=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
-          echo "$(cat /home/runner/.m2/settings.xml)"
+          echo "$(cat ~/.m2/settings.xml)"
     - name: Build with Maven
-      run: mvn -B package --file pom.xml --settings /home/runner/.m2/settings.xml
+      run: mvn -B package --file pom.xml --settings ~/.m2/settings.xml
 
     - name: Deploy to GitHub
-      run: mvn -e -X --settings /home/runner/.m2/settings.xml deploy 
+      run: mvn -e -X --settings settings.xml -Drepo.id=repsy -Drepo.login=${{secrets.USER}} -Drepo.pwd=${{secrets.PASS}}  deploy 
     - name: Commit files
       run: |
         git config --local user.email "revision-updater@gamedoora.com"
@@ -48,6 +53,6 @@ jobs:
         git commit -m "Version upgrade" -a
         echo "TAG = $GIT_TAG"
         git tag "$GIT_TAG"
-        git push origin master
+        git push origin main
         git push origin "$GIT_TAG"
 
