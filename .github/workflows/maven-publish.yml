@@ -55,4 +55,6 @@ jobs:
         git tag "$GIT_TAG"
         git push origin main
         git push origin "$GIT_TAG"
+      env:
+       repo-token: ${{ secrets.GITHUB_TOKEN }}
 
