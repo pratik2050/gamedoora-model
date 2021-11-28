@@ -1,9 +1,0 @@
-*.iml
-.classpath
-.project
-.settings
-.DS_Store
-.idea
-*.tmp
-/build
-/target
