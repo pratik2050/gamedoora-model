@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.pusher.email != 'revision-updater@gamedoora.com'
     runs-on: ubuntu-latest
     permissions:
       contents: read
