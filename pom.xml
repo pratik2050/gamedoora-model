@@ -4,7 +4,7 @@
 
     <groupId>com.gamedoora</groupId>
     <artifactId>gamedoora-model</artifactId>
-    <version>0.743</version>
+    <version>0.744</version>
     <name>gamedoora model</name>
     <description>gamedoora-model - LGPL Java library</description>
     <packaging>jar</packaging>
