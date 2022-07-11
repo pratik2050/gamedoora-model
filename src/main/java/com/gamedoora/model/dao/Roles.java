@@ -1,5 +1,4 @@
 package com.gamedoora.model.dao;
-
 import java.io.Serializable;
 import java.util.Set;
 
@@ -12,8 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "skills")
-public class Skills extends Audit implements Serializable {
+@Table(name = "roles")
+public class Roles extends Audit implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,20 +22,17 @@ public class Skills extends Audit implements Serializable {
 	private long id;
 
 	@Basic
-	@Column(name = "skill_name")
+	@Column(name = "role_name")
 	private String name;
 
 	@Basic
-	@Column(name = "skill_description")
+	@Column(name = "role_description")
 	private String description;
 
-	@OneToMany(mappedBy = "skills")
-	Set<UserSkills> userSkills;
-
-	@OneToMany(mappedBy = "skills")
-	Set<SkillsSource> skillsSources;
-
-	@OneToMany(mappedBy = "skills")
+	@OneToMany(mappedBy = "roles")
+	Set<UserRole> userRole;
+	
+	@OneToMany(mappedBy = "roles")
 	Set<RoleSkills> roleSkills;
 
 	public long getId() {
@@ -61,6 +57,14 @@ public class Skills extends Audit implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Set<UserRole> getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(Set<UserRole> userRole) {
+		this.userRole = userRole;
 	}
 
 }

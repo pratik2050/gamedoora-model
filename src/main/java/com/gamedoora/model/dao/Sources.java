@@ -3,7 +3,6 @@ package com.gamedoora.model.dao;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "skills")
-public class Skills extends Audit implements Serializable {
+@Table(name = "sources")
+public class Sources extends Audit implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,22 +21,11 @@ public class Skills extends Audit implements Serializable {
 	@Column(name = "id", nullable = false)
 	private long id;
 
-	@Basic
-	@Column(name = "skill_name")
+	@Column(name = "source_name")
 	private String name;
 
-	@Basic
-	@Column(name = "skill_description")
-	private String description;
-
-	@OneToMany(mappedBy = "skills")
-	Set<UserSkills> userSkills;
-
-	@OneToMany(mappedBy = "skills")
+	@OneToMany(mappedBy = "sources")
 	Set<SkillsSource> skillsSources;
-
-	@OneToMany(mappedBy = "skills")
-	Set<RoleSkills> roleSkills;
 
 	public long getId() {
 		return id;
@@ -55,12 +43,12 @@ public class Skills extends Audit implements Serializable {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
+	public Set<SkillsSource> getSkillsSources() {
+		return skillsSources;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setSkillsSources(Set<SkillsSource> skillsSources) {
+		this.skillsSources = skillsSources;
 	}
 
 }
