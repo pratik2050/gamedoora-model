@@ -99,5 +99,11 @@
 		</dependency>
 
 	</dependencies>
-
+	<distributionManagement>
+	  <repository>
+	    <id>gamedoora-Gamedoora</id>
+	    <name>gamedoora-Gamedoora</name>
+	    <url>https://gamedoora-727903310356.d.codeartifact.us-east-1.amazonaws.com/maven/Gamedoora/</url>
+	  </repository>
+</distributionManagement>
 </project>
