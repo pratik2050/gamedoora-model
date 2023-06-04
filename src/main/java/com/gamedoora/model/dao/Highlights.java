@@ -1,5 +1,7 @@
 package com.gamedoora.model.dao;
 
+import com.gamedoora.model.dao.Audit;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
