@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
@@ -18,6 +19,7 @@ import java.io.Serializable;
 @Table(name = "project_user")
 public class ProjectUser implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

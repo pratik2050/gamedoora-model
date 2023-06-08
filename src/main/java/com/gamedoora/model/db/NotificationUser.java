@@ -10,12 +10,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serial;
+import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Data
 @Table(name = "notification_user")
-public class NotificationUser extends Audit {
+public class NotificationUser extends Audit implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue

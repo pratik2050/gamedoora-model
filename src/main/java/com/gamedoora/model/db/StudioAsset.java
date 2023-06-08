@@ -3,6 +3,7 @@ package com.gamedoora.model.db;
 import com.gamedoora.model.dao.Audit;
 import com.gamedoora.model.dao.Users;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,12 +12,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
+@EqualsAndHashCode(callSuper = false)
 @Entity
 @Data
 @Table(name = "studio_assets")
-public class StudioAsset extends Audit {
+public class StudioAsset extends Audit implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
@@ -74,13 +81,13 @@ public class StudioAsset extends Audit {
     private String assetFileUrl;
 
     @Column(name = "asset_file_updated_at")
-    Date assetFileUpdatedAt;
+    private Date assetFileUpdatedAt;
 
     @Column(name = "script_locked_by")
     private int scriptLockedBy;
 
     @Column(name = "script_locked_at")
-    Date scriptLockedAt;
+    private Date scriptLockedAt;
 
     @Column(name = "asset_type" , columnDefinition = "NOT NULL COMMENT 'document or image or audio or video.")
     private String assetType;

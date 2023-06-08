@@ -11,13 +11,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Data
 @Table(name = "stories")
-public class Stories extends Audit {
+public class Stories extends Audit implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue

@@ -9,13 +9,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Data
 @Table(name = "database_change_log_lock")
-public class DatabaseChangeLogLock extends Audit {
+public class DatabaseChangeLogLock extends Audit implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
