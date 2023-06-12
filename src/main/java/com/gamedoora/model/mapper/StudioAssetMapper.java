@@ -2,6 +2,7 @@ package com.gamedoora.model.mapper;
 
 import com.gamedoora.model.dto.StudioAssetDTO;
 import com.gamedoora.model.dao.StudioAsset;
+import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -13,7 +14,7 @@ import org.mapstruct.Mapping;
  * we can define all our common utilities and functions within one class/interface and use it globally.
  * **/
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring" , builder = @Builder(disableBuilder = true))
 public abstract class StudioAssetMapper extends BaseMapper {
 
     public abstract StudioAssetDTO studioAssetToStudioAssetDto(StudioAsset studioAsset);

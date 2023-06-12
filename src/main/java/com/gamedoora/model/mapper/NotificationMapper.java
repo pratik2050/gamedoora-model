@@ -2,6 +2,8 @@ package com.gamedoora.model.mapper;
 
 import com.gamedoora.model.dto.NotificationsDTO;
 import com.gamedoora.model.dao.Notifications;
+import lombok.Data;
+import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -13,7 +15,7 @@ import org.mapstruct.Mapping;
  * we can define all our common utilities and functions within one class/interface and use it globally.
  * **/
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring" , builder = @Builder(disableBuilder = true))
 public abstract class NotificationMapper extends BaseMapper {
 
     public abstract NotificationsDTO notificationToNotificationDTO(Notifications notifications);

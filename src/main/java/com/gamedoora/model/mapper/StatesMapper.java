@@ -2,10 +2,11 @@ package com.gamedoora.model.mapper;
 
 import com.gamedoora.model.dto.StatesDTO;
 import com.gamedoora.model.dao.States;
+import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring" , builder = @Builder(disableBuilder = true))
 public abstract class StatesMapper extends BaseMapper {
 
     public abstract StatesDTO statesToStatesDto(States states);

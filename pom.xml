@@ -119,9 +119,15 @@
             <version>1.18.26</version>
             <scope>compile</scope>
         </dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>6.0.9</version>
+		</dependency>
 
 
-    </dependencies>
+	</dependencies>
 	<distributionManagement>
 	  <repository>
 	    <id>codeartifact</id>
