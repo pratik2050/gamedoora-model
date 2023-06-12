@@ -1,5 +1,6 @@
 package com.gamedoora.model.dao;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,6 +15,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Data
+@Builder
 @Table(name = "notification_user")
 public class NotificationUser extends Audit implements Serializable {
 

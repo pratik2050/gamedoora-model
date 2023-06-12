@@ -1,5 +1,6 @@
 package com.gamedoora.model.dao;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 import java.io.Serial;
 import java.io.Serializable;
 
+@Builder
 @Entity
 @Data
 @Table(name = "project_user")

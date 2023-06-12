@@ -1,5 +1,6 @@
 package com.gamedoora.model.dao;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,6 +15,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
+@Builder
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Data

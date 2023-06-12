@@ -1,5 +1,8 @@
 package com.gamedoora.model.dao;
 
+import lombok.Builder;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -11,10 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@Builder
 @Entity
 @Table(name = "skills")
 public class Skills extends Audit implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Id

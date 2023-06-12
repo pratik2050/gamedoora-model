@@ -1,5 +1,6 @@
 package com.gamedoora.model.dao;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Data
+@Builder
 @Table(name = "database_change_log_lock")
 public class DatabaseChangeLogLock extends Audit implements Serializable {
 

@@ -1,5 +1,7 @@
 package com.gamedoora.model.dao;
 
+import lombok.Builder;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -11,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Builder
 @Entity
 @Table(name = "skills_sources")
 public class SkillsSource implements Serializable {
