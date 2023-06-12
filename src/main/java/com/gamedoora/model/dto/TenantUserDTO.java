@@ -1,4 +1,4 @@
-package com.gamedoora.model.dto.dto.reviewDTO;
+package com.gamedoora.model.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

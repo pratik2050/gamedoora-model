@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class CommentsDTO {
 
-    private long id;
+    long id;
 
     private String context;
 

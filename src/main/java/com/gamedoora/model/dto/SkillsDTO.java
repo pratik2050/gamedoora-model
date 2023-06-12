@@ -1,4 +1,4 @@
-package com.gamedoora.model.dto.dto;
+package com.gamedoora.model.dto;
 
 public class SkillsDTO {
 	private String name;

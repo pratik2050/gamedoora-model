@@ -1,4 +1,4 @@
-package com.gamedoora.model.mapper.mapper;
+package com.gamedoora.model.mapper;
 
 import org.mapstruct.Named;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 
 public abstract class BaseMapper {
 
-    private String creator = "GameDoora";
+    private final String creator = "GameDoora";
 
     @Named("CreatedBy")
     public String getCreatedBy(){
