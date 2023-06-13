@@ -11,27 +11,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
-@Entity
 @Getter
 @Setter
 @Builder
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "highlights")
-public class Highlights extends Audit implements Serializable {
+@Table(name = "tenants")
+public class Tenants extends Audit {
 
-	private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue
+    @Column(name = "id" , nullable = false)
+    private long id;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id", nullable = false)
-	private long id;
+    @Column(name = "subdomain")
+    private String subDomain;
 
-	@Column(name = "url_details")
-	private long urlDetails;
+    @Column(name = "entity_id")
+    private int entityId;
 
-	@Column(name = "user_id")
-	private long userId;
+    @Column(name = "entity_type")
+    private String entityType;
+
 }
