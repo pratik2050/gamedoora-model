@@ -3,6 +3,7 @@ package com.gamedoora.model.dao;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import java.util.Date;
 @Entity
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "database_change_log_lock")
 public class DatabaseChangeLogLock extends Audit implements Serializable {
 

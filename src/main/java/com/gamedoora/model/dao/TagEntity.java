@@ -2,9 +2,8 @@ package com.gamedoora.model.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -20,6 +19,7 @@ import javax.persistence.Table;
 @Builder
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tag_entities")
 public class TagEntity extends Audit {
 

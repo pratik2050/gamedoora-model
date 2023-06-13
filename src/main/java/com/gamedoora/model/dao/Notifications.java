@@ -3,6 +3,7 @@ package com.gamedoora.model.dao;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import java.io.Serializable;
 @Entity
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "notifications")
 public class Notifications extends Audit implements Serializable {
 

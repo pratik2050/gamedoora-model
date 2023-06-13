@@ -2,12 +2,7 @@ package com.gamedoora.model.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import java.io.Serializable;
-import java.util.Date;
-import java.util.Set;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,12 +13,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
 
-@Getter
-@Setter
 @Builder
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Users extends Audit implements Serializable {
 
