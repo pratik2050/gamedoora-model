@@ -1,6 +1,9 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +13,10 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
+@Getter
+@Setter
 @Builder
+@AllArgsConstructor
 @Table(name = "highlights")
 public class Highlights extends Audit implements Serializable {
 

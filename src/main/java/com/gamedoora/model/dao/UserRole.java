@@ -1,6 +1,9 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -13,8 +16,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Builder
 @Entity
+@AllArgsConstructor
 @Table(name = "users_roles")
 public class UserRole implements Serializable {
 

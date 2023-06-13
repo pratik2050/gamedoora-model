@@ -1,8 +1,9 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,10 +13,12 @@ import javax.persistence.Table;
 import java.io.Serial;
 import java.io.Serializable;
 
-@EqualsAndHashCode(callSuper = false)
+
 @Entity
-@Data
+@Getter
+@Setter
 @Builder
+@AllArgsConstructor
 @Table(name = "notification_user")
 public class NotificationUser extends Audit implements Serializable {
 

@@ -1,8 +1,11 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,10 +17,11 @@ import javax.persistence.Table;
 import java.io.Serial;
 import java.io.Serializable;
 
+@Getter
+@Setter
 @Builder
-@EqualsAndHashCode(callSuper = false)
 @Entity
-@Data
+@AllArgsConstructor
 @Table(name = "studio_user_requests")
 public class StudioUserRequest extends Audit implements Serializable {
 

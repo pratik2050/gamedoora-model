@@ -1,6 +1,9 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -12,8 +15,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Builder
 @Entity
+@AllArgsConstructor
 @Table(name = "sources")
 public class Sources extends Audit implements Serializable {
 

@@ -1,7 +1,10 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +19,9 @@ import java.io.Serializable;
 
 @Builder
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @Table(name = "project_user")
 public class ProjectUser implements Serializable {
 

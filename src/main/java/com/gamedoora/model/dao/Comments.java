@@ -1,8 +1,9 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +16,10 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Builder
-@EqualsAndHashCode(callSuper = false)
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @Table(name = "comments")
 public class Comments extends Audit implements Serializable {
 

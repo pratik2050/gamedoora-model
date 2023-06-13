@@ -1,8 +1,9 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +14,11 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
-@EqualsAndHashCode(callSuper = false)
+@Getter
+@Setter
 @Entity
-@Data
 @Builder
+@AllArgsConstructor
 @Table(name = "database_change_log_lock")
 public class DatabaseChangeLogLock extends Audit implements Serializable {
 

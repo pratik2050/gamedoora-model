@@ -1,8 +1,11 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,10 +13,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Builder
-@EqualsAndHashCode(callSuper = false)
 @Entity
-@Data
+@AllArgsConstructor
 @Table(name = "tags")
 public class Tags extends Audit {
 

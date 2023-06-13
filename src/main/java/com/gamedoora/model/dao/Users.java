@@ -1,6 +1,9 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,8 +19,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
+@Getter
+@Setter
 @Builder
 @Entity
+@AllArgsConstructor
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Users extends Audit implements Serializable {
 

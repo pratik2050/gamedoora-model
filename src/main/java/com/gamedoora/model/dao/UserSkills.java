@@ -1,7 +1,11 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -13,11 +17,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Builder
 @Entity
+@AllArgsConstructor
 @Table(name = "user_skills")
 public class UserSkills implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Id

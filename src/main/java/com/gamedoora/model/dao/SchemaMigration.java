@@ -1,7 +1,10 @@
 package com.gamedoora.model.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +15,9 @@ import javax.persistence.Table;
 
 @Builder
 @Entity
-@Data
+@Setter
+@Getter
+@AllArgsConstructor
 @Table(name = "schema_migration")
 public class SchemaMigration {
 
