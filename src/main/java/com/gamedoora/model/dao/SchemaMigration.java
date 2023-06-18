@@ -9,29 +9,24 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
-@Entity
-@Getter
-@Setter
 @Builder
+@Entity
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "highlights")
-public class Highlights extends Audit implements Serializable {
+@Table(name = "schema_migration")
+public class SchemaMigration {
 
-	private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private long id;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id", nullable = false)
-	private long id;
-
-	@Column(name = "url_details")
-	private long urlDetails;
-
-	@Column(name = "user_id")
-	private long userId;
+    @Column(name = "version" , nullable = false)
+    private String version;
 }
