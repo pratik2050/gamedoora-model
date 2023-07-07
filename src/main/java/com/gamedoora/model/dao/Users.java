@@ -72,11 +72,11 @@ public class Users extends Audit implements Serializable {
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	Set<UserRole> userRole;
+	Set<Roles> role;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_skills", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
-	Set<UserSkills> userSkills;
+	Set<Skills> skills;
 
 	public long getId() {
 		return id;
@@ -210,20 +210,20 @@ public class Users extends Audit implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Set<UserRole> getUserRole() {
-		return userRole;
+	public Set<Roles> getRole() {
+		return role;
 	}
 
-	public void setUserRole(Set<UserRole> userRole) {
-		this.userRole = userRole;
+	public void setRole(Set<Roles> role) {
+		this.role = role;
 	}
 
-	public Set<UserSkills> getUserSkills() {
-		return userSkills;
+	public Set<Skills> getSkills() {
+		return skills;
 	}
 
-	public void setUserSkills(Set<UserSkills> userSkills) {
-		this.userSkills = userSkills;
+	public void setSkills(Set<Skills> skills) {
+		this.skills = skills;
 	}
 
 }

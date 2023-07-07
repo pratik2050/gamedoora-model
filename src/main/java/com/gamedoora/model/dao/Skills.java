@@ -38,11 +38,11 @@ public class Skills extends Audit implements Serializable {
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "skills_sources", joinColumns = @JoinColumn(name = "skill_id"), inverseJoinColumns = @JoinColumn(name = "source_id"))
-	Set<SkillsSource> skillsSources;
+	Set<Sources> skillsSources;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "roles_skills", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
-	Set<RoleSkills> roleSkills;
+	Set<Skills> skills;
 
 	public long getId() {
 		return id;
