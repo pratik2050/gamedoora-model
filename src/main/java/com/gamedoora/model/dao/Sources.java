@@ -27,7 +27,7 @@ public class Sources extends Audit implements Serializable {
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "skills_sources", joinColumns = @JoinColumn(name = "skill_id"), inverseJoinColumns = @JoinColumn(name = "source_id"))
-	Set<Sources> sources;
+	Set<Skills> skills;
 
 	public long getId() {
 		return id;
@@ -45,12 +45,12 @@ public class Sources extends Audit implements Serializable {
 		this.name = name;
 	}
 
-	public Set<Sources> getSources() {
-		return sources;
+	public Set<Skills> getSkills() {
+		return skills;
 	}
 
-	public void setSources(Set<Sources> sources) {
-		this.sources = sources;
+	public void setSkills(Set<Skills> skills) {
+		this.skills = skills;
 	}
 
 }
