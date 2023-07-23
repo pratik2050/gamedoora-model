@@ -6,11 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -34,5 +31,9 @@ public class Tenants extends Audit {
 
     @Column(name = "entity_type")
     private String entityType;
+
+    @ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @JoinTable(name = "tenant_users" , joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "tenant_id"))
+    Set<Users> users;
 
 }

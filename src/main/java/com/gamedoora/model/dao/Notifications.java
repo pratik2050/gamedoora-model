@@ -47,9 +47,9 @@ public class Notifications extends Audit implements Serializable {
     @Column(name = "action_url")
     private String actionUrl;
 
-    @Column(name = "is_email" , columnDefinition = "false")
+    @Column(name = "is_email" , columnDefinition = "nullable=false")
     private boolean isEmail;
 
-    @Column(name = "is_notification" , columnDefinition = "false")
+    @Column(name = "is_notification" , columnDefinition = "nullable=false")
     private boolean isNotification;
 }
