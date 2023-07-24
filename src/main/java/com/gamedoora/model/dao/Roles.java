@@ -5,11 +5,15 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Set;
@@ -36,11 +40,13 @@ public class Roles extends Audit implements Serializable {
 	@Column(name = "role_description")
 	private String description;
 
-	@OneToMany(mappedBy = "roles")
-	Set<UserRole> userRole;
-	
-	@OneToMany(mappedBy = "roles")
-	Set<RoleSkills> roleSkills;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	Set<Users> users;
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "roles_skills", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
+	Set<Skills> skills;
 
 	public long getId() {
 		return id;
@@ -66,12 +72,12 @@ public class Roles extends Audit implements Serializable {
 		this.description = description;
 	}
 
-	public Set<UserRole> getUserRole() {
-		return userRole;
+	public Set<Users> getUsers() {
+		return users;
 	}
 
-	public void setUserRole(Set<UserRole> userRole) {
-		this.userRole = userRole;
+	public void setUsers(Set<Users> users) {
+		this.users = users;
 	}
 
 }

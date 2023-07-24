@@ -38,9 +38,9 @@ public class NotificationUser extends Audit implements Serializable {
     @Column(name = "user_id")
     private Users users;
 
-    @Column(name = "is_seen" , columnDefinition = "false")
+    @Column(name = "is_seen" , columnDefinition = "nullable=false")
     private boolean isSeen;
 
-    @Column(name = "is_clicked" , columnDefinition = "false")
+    @Column(name = "is_clicked" , columnDefinition = "nullable=false")
     private boolean isClicked;
 }

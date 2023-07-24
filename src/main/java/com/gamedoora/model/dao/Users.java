@@ -4,15 +4,20 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -78,11 +83,13 @@ public class Users extends Audit implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	Date currentSignIn;
 
-	@OneToMany(mappedBy = "users")
-	Set<UserRole> userRole;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	Set<Roles> role;
 
-	@OneToMany(mappedBy = "users")
-	Set<UserSkills> userSkills;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "user_skills", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
+	Set<Skills> skills;
 
 	public long getId() {
 		return id;
@@ -216,20 +223,20 @@ public class Users extends Audit implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Set<UserRole> getUserRole() {
-		return userRole;
+	public Set<Roles> getRole() {
+		return role;
 	}
 
-	public void setUserRole(Set<UserRole> userRole) {
-		this.userRole = userRole;
+	public void setRole(Set<Roles> role) {
+		this.role = role;
 	}
 
-	public Set<UserSkills> getUserSkills() {
-		return userSkills;
+	public Set<Skills> getSkills() {
+		return skills;
 	}
 
-	public void setUserSkills(Set<UserSkills> userSkills) {
-		this.userSkills = userSkills;
+	public void setSkills(Set<Skills> skills) {
+		this.skills = skills;
 	}
 
 }

@@ -4,11 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Set;
@@ -30,8 +35,9 @@ public class Sources extends Audit implements Serializable {
 	@Column(name = "source_name")
 	private String name;
 
-	@OneToMany(mappedBy = "sources")
-	Set<SkillsSource> skillsSources;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "skills_sources", joinColumns = @JoinColumn(name = "skill_id"), inverseJoinColumns = @JoinColumn(name = "source_id"))
+	Set<Skills> skills;
 
 	public long getId() {
 		return id;
@@ -49,12 +55,12 @@ public class Sources extends Audit implements Serializable {
 		this.name = name;
 	}
 
-	public Set<SkillsSource> getSkillsSources() {
-		return skillsSources;
+	public Set<Skills> getSkills() {
+		return skills;
 	}
 
-	public void setSkillsSources(Set<SkillsSource> skillsSources) {
-		this.skillsSources = skillsSources;
+	public void setSkills(Set<Skills> skills) {
+		this.skills = skills;
 	}
 
 }
