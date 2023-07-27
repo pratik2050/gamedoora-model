@@ -26,13 +26,13 @@ public class UserSkills implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "Id")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@ManyToOne
-	@JoinColumn(name = "skill_id")
-	Skills skills;
+//	@ManyToOne
+//	@JoinColumn(name = "skills_id")
+//	Skills skills;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -46,13 +46,13 @@ public class UserSkills implements Serializable {
 		this.id = id;
 	}
 
-	public Skills getSkills() {
-		return skills;
-	}
-
-	public void setSkills(Skills skills) {
-		this.skills = skills;
-	}
+//	public Skills getSkills() {
+//		return skills;
+//	}
+//
+//	public void setSkills(Skills skills) {
+//		this.skills = skills;
+//	}
 
 	public Users getUsers() {
 		return users;

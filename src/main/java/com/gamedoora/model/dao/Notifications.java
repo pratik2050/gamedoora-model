@@ -47,9 +47,12 @@ public class Notifications extends Audit implements Serializable {
     @Column(name = "action_url")
     private String actionUrl;
 
-    @Column(name = "is_email" , columnDefinition = "nullable=false")
+    @Column(name = "is_email" ,columnDefinition = "BOOLEAN NOT NULL")
     private boolean isEmail;
 
-    @Column(name = "is_notification" , columnDefinition = "nullable=false")
+    @Column(name = "is_notification" , columnDefinition = "BOOLEAN NOT NULL")
     private boolean isNotification;
+
+    /* ColumnDefinition syntax has been updated, using nullable=false doesn't seem to work consistently.*/
+
 }
