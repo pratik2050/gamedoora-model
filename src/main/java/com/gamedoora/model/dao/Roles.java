@@ -80,4 +80,8 @@ public class Roles extends Audit implements Serializable {
 		this.users = users;
 	}
 
+	public Set<Skills> getSkills(){return skills;}
+
+	public void setSkills(Set<Skills> skills){this.skills = skills;}
+
 }

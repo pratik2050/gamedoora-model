@@ -30,7 +30,7 @@ public class Task extends Audit implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id" , nullable = false)
+    @Column(name = "id" , columnDefinition = "BIGINT NOT NULL")
     private long id;
 
     @ManyToOne
@@ -40,7 +40,7 @@ public class Task extends Audit implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "is_done" , columnDefinition = "false")
+    @Column(name = "is_done" , columnDefinition = "BOOLEAN NOT NULL")
     private boolean isDone;
 
 }

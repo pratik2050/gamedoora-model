@@ -45,13 +45,13 @@ public class StudioAsset extends Audit implements Serializable {
     @Column(name = "uid")
     private String uid;
 
-    @Column(name = "name" , columnDefinition = "asset name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "context" , columnDefinition = "default '1'")
+    @Column(name = "context")
     private String context;
 
-    @Column(name = "version" , columnDefinition = "DEFAULT 1")
+    @Column(name = "version" , columnDefinition = "INT DEFAULT 1")
     private int version;
 
     @Column(name = "parent_id")
@@ -60,19 +60,19 @@ public class StudioAsset extends Audit implements Serializable {
     @Column(name = "bucket_name" , length = 512)
     private String bucketName;
 
-    @Column(name = "is_published" , columnDefinition = "DEFAULT '0'")
+    @Column(name = "is_published" , columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean isPublished;
 
-    @Column(name = "is_uploaded" , columnDefinition = "DEFAULT '0'")
+    @Column(name = "is_uploaded" , columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean isUploaded;
 
-    @Column(name = "is_uploading" , columnDefinition = "DEFAULT '0'")
+    @Column(name = "is_uploading" , columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean isUploading;
 
-    @Column(name = "is_deleted" , columnDefinition = "DEFAULT '0'")
+    @Column(name = "is_deleted" , columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean isDeleted;
 
-    @Column(name = "asset_file_size" , columnDefinition = "DEFAULT '0'")
+    @Column(name = "asset_file_size" , columnDefinition = "INT DEFAULT 0")
     private int assetFileSize;
 
     @Column(name = "asset_file_content_type" , length = 128)
@@ -93,7 +93,11 @@ public class StudioAsset extends Audit implements Serializable {
     @Column(name = "script_locked_at")
     private Date scriptLockedAt;
 
-    @Column(name = "asset_type" , columnDefinition = "NOT NULL COMMENT 'document or image or audio or video.")
+    @Column(name = "asset_type" , columnDefinition = "VARCHAR(255) COMMENT 'document or image or audio or video.'")
     private String assetType;
 
+    /* ColumnDefinition syntax has been updated, using nullable=false doesn't seem to work consistently.*/
+
 }
+
+

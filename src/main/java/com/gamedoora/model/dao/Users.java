@@ -88,7 +88,7 @@ public class Users extends Audit implements Serializable {
 	Set<Roles> role;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "user_skills", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
+	@JoinTable(name = "user_skills", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "skills_id"))
 	Set<Skills> skills;
 
 	public long getId() {
