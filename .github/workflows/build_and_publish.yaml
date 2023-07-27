@@ -1,0 +1,40 @@
+name: Deploy to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+      - feat/ci-cd
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      - name: Add execute permissions to script
+        run: chmod +x ./check-version.sh
+
+      - name: Check if version exists
+        id: chkvrsn
+        run: ./check-version.sh
+        env:
+          PAT: ${{ secrets.PAT }}
+          USER: ${{ secrets.USER }}
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Publish to GitHub Packages
+        run: mvn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        if: ${{ steps.chkvrsn.outputs.exists == 'false' }}
