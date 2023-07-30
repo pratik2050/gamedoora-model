@@ -25,7 +25,7 @@ public class TagEntity extends Audit {
 
    @Id
     @GeneratedValue
-    @Column(name = "id" , nullable = false)
+    @Column(name = "id" , columnDefinition = "BIGINT NOT NULL")
     private long id;
 
     @ManyToOne

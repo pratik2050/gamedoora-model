@@ -40,12 +40,12 @@ public class Studios extends Audit implements Serializable {
     @Column(name = "uid")
     private String uid;
 
-    @Column(name = "is_community" , columnDefinition = "1")
+    @Column(name = "is_community" , columnDefinition = "INT DEFAULT 1")
     private int isCommunity;
 
-    @Column(name = "visibility" , columnDefinition = "true")
+    @Column(name = "visibility" , columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean visibility;
 
-    @Column(name = "registration" , columnDefinition = "false")
+    @Column(name = "registration" , columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean registration;
 }
