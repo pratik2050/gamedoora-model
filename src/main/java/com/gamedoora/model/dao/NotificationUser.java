@@ -42,6 +42,7 @@ public class NotificationUser extends Audit implements Serializable {
 
     @Column(name = "is_clicked" , columnDefinition = "BOOLEAN NOT NULL")
     private boolean isClicked;
+    // figure out how to work around this
 
     /* ColumnDefinition syntax has been updated, using nullable=false doesn't seem to work consistently.*/
 }

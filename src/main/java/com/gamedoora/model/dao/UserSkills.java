@@ -30,10 +30,6 @@ public class UserSkills implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-//	@ManyToOne
-//	@JoinColumn(name = "skills_id")
-//	Skills skills;
-
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	Users users;
@@ -45,14 +41,6 @@ public class UserSkills implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-//	public Skills getSkills() {
-//		return skills;
-//	}
-//
-//	public void setSkills(Skills skills) {
-//		this.skills = skills;
-//	}
 
 	public Users getUsers() {
 		return users;

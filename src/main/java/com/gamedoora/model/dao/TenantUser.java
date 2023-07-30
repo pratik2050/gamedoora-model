@@ -33,10 +33,6 @@ public class TenantUser extends Audit implements Serializable {
     @Column(name = "id" , nullable = false)
     private long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "tenant_id")
-//    Tenants tenants;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     Users users;
