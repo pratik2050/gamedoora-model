@@ -38,4 +38,8 @@ public class ProjectUser implements Serializable {
     @JoinColumn(name = "user_id")
     Users users;
 
+//    @ManyToOne
+//    @JoinColumn(name = "project_id")
+//    Projects projects;
+
 }

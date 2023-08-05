@@ -47,4 +47,6 @@ public class StudioUserRequest extends Audit implements Serializable {
     @Column(name = "status")
     private String status;
 
+    // rename it as JoinRequest
+
 }

@@ -10,9 +10,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Getter
@@ -52,6 +54,9 @@ public class Notifications extends Audit implements Serializable {
 
     @Column(name = "is_notification" , columnDefinition = "BOOLEAN NOT NULL")
     private boolean isNotification;
+
+    @ManyToMany(mappedBy = "notifications")
+    Set<Users> usersSet;
 
     /* ColumnDefinition syntax has been updated, using nullable=false doesn't seem to work consistently.*/
 
