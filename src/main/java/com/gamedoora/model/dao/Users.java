@@ -91,6 +91,15 @@ public class Users extends Audit implements Serializable {
 	@JoinTable(name = "user_skills", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "skills_id"))
 	Set<Skills> skills;
 
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "studio_user_requests" , joinColumns = @JoinColumn(name = "studio_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	Set<Studios> studiosSet;
+	//verify the table name studio_user
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "user_notification" , joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "notification_id"))
+	Set<Notifications> notifications;
+
 	public long getId() {
 		return id;
 	}
