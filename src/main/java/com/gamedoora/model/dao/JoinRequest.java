@@ -22,8 +22,8 @@ import java.io.Serializable;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tenant_users")
-public class TenantUser extends Audit implements Serializable {
+@Table(name = "join_request")
+public class JoinRequest extends Audit implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -33,15 +33,20 @@ public class TenantUser extends Audit implements Serializable {
     @Column(name = "id" , nullable = false)
     private long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "tenant_id")
-//    Tenants tenants;
+    @Column(name = "uid")
+    private String uid;
+
+    @ManyToOne
+    @JoinColumn(name = "studio_id")
+    Studios studios;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     Users users;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "status")
+    private String status;
+
+    // rename it as JoinRequest
 
 }

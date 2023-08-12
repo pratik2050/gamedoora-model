@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serial;
 import java.io.Serializable;
@@ -46,7 +47,8 @@ public class Projects extends Audit implements Serializable {
     @Column(name = "worked_for")
     private String workedFor;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany
     @JoinTable(name = "project_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
     Set<Users> userSet;
 
