@@ -34,12 +34,12 @@ public class ProjectUser implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "project_id")
-//    Projects projects;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     Users users;
+
+//    @ManyToOne
+//    @JoinColumn(name = "project_id")
+//    Projects projects;
 
 }
