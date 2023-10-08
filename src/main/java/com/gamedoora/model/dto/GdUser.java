@@ -11,4 +11,5 @@ public class GdUser {
     private List<RoleDTO> roles;
     private List<SkillsDTO> skills;
     private UserDTO user;
+    private List<StudiosDTO> studios;
 }
