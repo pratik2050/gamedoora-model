@@ -1,8 +1,6 @@
 package com.gamedoora.model.dao;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serial;
@@ -11,6 +9,8 @@ import java.util.Date;
 import java.util.Set;
 
 @Builder
+@Getter
+@Setter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
