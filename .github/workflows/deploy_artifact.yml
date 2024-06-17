@@ -1,0 +1,27 @@
+name: Deploy Package
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      RTX_PWD: ${{ secrets.PAT }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Publish to GitHub Packages
+        run: mvn -s ./settings.xml deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
