@@ -1,0 +1,71 @@
+name: Build on Merge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+      repository-projects: write
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      - name: Add execute permissions to script
+        run: chmod +x ./check-version.sh
+
+      - name: Check if version exists
+        id: chkvrsn
+        run: ./check-version.sh
+        env:
+          PAT: ${{ secrets.PAT }}
+          USER: ${{ secrets.USER }}
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Configure GIT
+        run: |
+          git config --global user.name 'rtx-inspire'
+          git config --global user.email 'inspiringfacts57@gmail.com'
+
+      - name: Create tag
+        id: create_tag
+        run: |
+          mvn scm:tag
+
+          TAG=$(git describe --tags --abbrev=0)
+          echo "Tag: $TAG"
+          echo "::set-output name=tag::$TAG"
+
+      - name: Trigger Release Workflow
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          event-type: trigger-release
+          client-payload: '{"tag_name": "${{ steps.create_tag.outputs.tag }}"}'
+
+      - name: Update pom to next version
+        run: mvn -U build-helper:parse-version versions:set -DnewVersion='${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}' versions:commit
+
+      - name: Commit Changes
+        run: |
+          git add .
+          git commit -m "Actions Updated POM"
+
+      - name: Push Changes
+        if: github.ref == 'refs/heads/main'
+        run: git push origin main
