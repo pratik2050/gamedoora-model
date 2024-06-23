@@ -6,7 +6,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      RTX_PWD: ${{ secrets.PAT }}
+      CODEARTIFACT_AUTH_TOKEN: ${{ secrets.PAT }}
 
     steps:
       - name: Checkout code

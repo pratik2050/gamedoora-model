@@ -24,23 +24,23 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
-      - name: Add execute permissions to script
-        run: chmod +x ./check-version.sh
-
-      - name: Check if version exists
-        id: chkvrsn
-        run: ./check-version.sh
-        env:
-          PAT: ${{ secrets.PAT }}
-          USER: ${{ secrets.USER }}
+#      - name: Add execute permissions to script
+#        run: chmod +x ./check-version.sh
+#
+#      - name: Check if version exists
+#        id: chkvrsn
+#        run: ./check-version.sh
+#        env:
+#          PAT: ${{ secrets.PAT }}
+#          USER: ${{ secrets.USER }}
 
       - name: Build with Maven
         run: mvn clean install
 
       - name: Configure GIT
         run: |
-          git config --global user.name 'rtx-inspire'
-          git config --global user.email 'inspiringfacts57@gmail.com'
+          git config --global user.name 'gdTest'
+          git config --global user.email 'dev@gamedoora.com'
 
       - name: Create tag
         id: create_tag
